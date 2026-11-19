@@ -1,0 +1,43 @@
+{
+  "track": "paper_digitized",
+  "selected_case": "C00001",
+  "summary": {
+    "all_worst_relative_percent": 242.68732675067463,
+    "all_rms_relative_percent": 71.01813151605533,
+    "all_within_5_percent": false,
+    "all_metrics_within_5_percent": 9,
+    "all_rows_within_5_percent": 0,
+    "all_within_10_percent": false,
+    "all_metrics_within_10_percent": 12,
+    "all_rows_within_10_percent": 0,
+    "fit_worst_relative_percent": 242.68732675067463,
+    "fit_rms_relative_percent": 80.887515333123,
+    "fit_within_5_percent": false,
+    "fit_metrics_within_5_percent": 6,
+    "fit_rows_within_5_percent": 0,
+    "fit_within_10_percent": false,
+    "fit_metrics_within_10_percent": 9,
+    "fit_rows_within_10_percent": 0,
+    "reserved_worst_relative_percent": 91.66706730812426,
+    "reserved_rms_relative_percent": 39.311656807931975,
+    "reserved_within_5_percent": false,
+    "reserved_metrics_within_5_percent": 3,
+    "reserved_rows_within_5_percent": 0,
+    "reserved_within_10_percent": false,
+    "reserved_metrics_within_10_percent": 3,
+    "reserved_rows_within_10_percent": 0,
+    "design_valid": true
+  },
+  "originals_unchanged": true,
+  "protected_hashes": {
+    "NRHES_Model.py": "4434541cf463a82b0bb3cf4d3dc6b7315970d08e03205a232fc3c0981fb151a9",
+    "NRHES_Model.m": "945462d21e855beaa4427f1fe8a5d4bc78b378ab21305911401416f765227cf9",
+    "InputData.xlsx": "54c1d34a147db99d2f7a1e8137527571ba35834ae5c2862cc0a48949b3d2f8e3"
+  },
+  "input_sha256": "ef7453754120cb0eed2a2c72a5372cf0ad8b32be28182f9adff64c4585c4db19",
+  "paper_sha256": "9c6122dc9a9b912b705722e1cb9b2cb8e2131514f183a1fece30f7a4ee59fc14",
+  "reconstruction_implementation_sha256": "ff0347a5fe357dd493e54ae1e5b49c60d9a97bfea40866c963be2a795df48090",
+  "configuration_count": 1,
+  "dashboard_count": 1,
+  "no_reconstructed_weather_or_load_tuning": true
+}

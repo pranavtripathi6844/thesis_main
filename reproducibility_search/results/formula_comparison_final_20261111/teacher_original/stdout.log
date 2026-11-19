@@ -1,0 +1,44 @@
+========================================
+NRHES SIMULATION MODEL
+========================================
+
+Loading InputData.xlsx...
+Loaded 8760 hours of data.
+smTMSR: P_th = 25 MWth  |  P_e = 10 MWe
+
+--- Configurations from Table 5 ---
+
+--- Computing renewable energy output ---
+Running Mode 1...
+Running Mode 2...
+Running Mode 3...
+
+--- Computing performance metrics ---
+
+===============================================================================================
+Mode          DPSP       EWP   LCOE($/kWh)      H2(tonnes)   DPS(MWhe)        Avg LF
+-----------------------------------------------------------------------------------------------
+Mode 1      0.0056    0.0463        0.0687             0.0       564.9         0.736
+Mode 2      0.0040    0.0466        0.0833           439.0       402.1         0.751
+Mode 3      0.0112    0.0246        0.0653           414.9      1133.6         0.712
+===============================================================================================
+
+Paper Table 5 targets:
+  Mode 1: DPSP=0.0097  EWP=0.0402  LCOE=$0.0940/kWh
+  Mode 2: DPSP=0.0090  EWP=0.0380  LCOE=$0.1162/kWh  H2=138.0 tonnes
+  Mode 3: DPSP=0.0090  EWP=0.0062  LCOE=$0.0931/kWh  H2=98.8 tonnes
+
+Figures saved.
+
+Results saved to:
+  - Hydrogen_Production_Data.csv
+  - NRHES_Economic_Results.csv
+
+=== SIMULATION COMPLETE ===
+Results saved to:
+  - Hydrogen_Production_Data.csv
+  - NRHES_Economic_Results.csv
+  - Figure1_Annual_Data.png
+  - Figure2_Mode1_Results.png
+  - Figure3_Mode2_Results.png
+  - Figure4_Mode3_Results.png

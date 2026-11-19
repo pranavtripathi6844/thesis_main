@@ -1,0 +1,36 @@
+{
+  "scope": "Only ambiguous or unspecified settings. Published component costs, efficiencies, initial TES, capacities, control factors and Excel inputs remain fixed.",
+  "base_config": "search_config.json",
+  "physical_grid": {
+    "charge_mwth": [5.0, 10.0, 15.0, 20.0, 25.0],
+    "discharge_mwth": [5.0, 7.5, 10.0, 15.0, 25.0],
+    "thermal_gate": ["legacy", "resource"]
+  },
+  "economic_grid": {
+    "real_rate": [0.02, 0.0392156862745098, 0.06, 0.08, 0.10],
+    "project_years": [20, 30, 40],
+    "variable_cost_basis": ["thermal", "electric"],
+    "decommissioning": ["retirement", "project"]
+  },
+  "reporting_bands_percent": [10, 20, 30, 50],
+  "selection": {
+    "numerical_reference_relative_error": 0.25,
+    "numerical_weight": 0.5,
+    "missing_late_hydrogen_feature_penalty": 1.0,
+    "shortlist_physical_cases": 5
+  },
+  "provenance": {
+    "charge_mwth": "2025 paper p.9 Eqs.19-20 specify symbolic TES power limits. Appendix A2 p.16 gives 10 MW for BATTERY, not TES. Values 5-25 MWth are analyst search bounds, not published estimates.",
+    "discharge_mwth": "Same unresolved TES power rating. Extra 7.5 MWth point resolves low-discharge sensitivity.",
+    "thermal_gate": "Compare original extra heat gate with minimum ACTUAL electrical input and joint heat/electric requirements. Both hypotheses must pass resource and balance checks.",
+    "real_rate": "2024 paper p.6 defines real/nominal/inflation equations, but numerical financial rates were not located. Search real rate directly; nominal/inflation pairs are not separately identifiable here.",
+    "project_years": "2024 paper p.6 uses project horizon n without a located numerical value. Component lifetimes remain the published values; replacements occur strictly before horizon.",
+    "variable_cost_basis": "2025 Appendix A3 p.17 specifies reactor variable costs in $/MWh without explicitly marking electrical or thermal MWh.",
+    "decommissioning": "Compare full discounted retirement liability with a project-boundary convention. The former follows the 2024 paper Eq.22; the latter is explicitly an alternative accounting hypothesis.",
+    "fixed": "25 MWth follows 2025 main text; contradictory 50 MWth appendix value is NOT searched. PV area/efficiency equation, 40% conversion, TES loss=0, charge/discharge efficiency=100%, initial/minimum TES=5%, all published equipment costs/lifetimes, Table5 configurations, H2 prices and 15% SOEC minimum stay fixed.",
+    "excluded": "No weather/load scaling, no invented losses, no capacity optimization, no RL, no additive hydrogen as a selectable model, no arbitrary rescaling of waste.",
+    "retained_assumption": "Reactor retirement age remains the original unsourced 60-year assumption; it is not claimed to be established by either paper.",
+    "thresholds": "10/20/30/50% are exploratory reporting bands, not professor-approved acceptance thresholds.",
+    "shape": "Only three approximate TES-dip anchors and presence of late-year H2 contribute to the feature score. This is NOT full waveform similarity or author-series RMSE."
+  }
+}

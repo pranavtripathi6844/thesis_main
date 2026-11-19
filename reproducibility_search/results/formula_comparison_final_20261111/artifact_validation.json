@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "checked": {
+    "teacher_script/minimum": {
+      "configurations": 384000,
+      "best": "TM-P0441-F056"
+    },
+    "teacher_script/addition": {
+      "configurations": 384000,
+      "best": "TA-P0023-F148"
+    },
+    "our_model/minimum": {
+      "configurations": 384000,
+      "best": "OM-P1099-F131"
+    },
+    "our_model/addition": {
+      "configurations": 384000,
+      "best": "OA-P1099-F107"
+    }
+  },
+  "table_rows": 18,
+  "comparison_images": 6,
+  "teacher_engine_equals_original_run": true,
+  "protected_originals_unchanged": true,
+  "exact_Excel_values_unchanged": true
+}

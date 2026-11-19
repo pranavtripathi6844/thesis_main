@@ -1,0 +1,80 @@
+{
+  "validation_checks_passed": [
+    "8760 consecutive input hours",
+    "finite hourly results",
+    "TES load-factor bounds",
+    "summary CSV agrees with direct run",
+    "hydrogen hourly/cumulative CSV agrees with direct run"
+  ],
+  "paper_reference": "Nie et al. 2025, Table 5, p.12: Mode1 row1, Mode2 row1, Mode3 row4",
+  "important": "Accounting-only corrected numbers are diagnostics, not a corrected reproduction or edited source.",
+  "audit": [
+    {
+      "Mode": 1,
+      "annual_RE_MWh": 29976.48518436373,
+      "renewable_surplus_hours": 504,
+      "max_RE_MW": 12.833068691071396,
+      "missing_waste_hours": 3059,
+      "underreported_deficit_hours": 119,
+      "unreported_waste_MWh_e_equivalent": 11424.522712872393,
+      "underreported_deficit_MWh_e": 35.50573755108189,
+      "accounting_only_corrected_DPSP": 0.005927001623719116,
+      "accounting_only_corrected_EWP": 0.14348136751495552,
+      "accounting_only_corrected_LCOE": 0.06871223229132353,
+      "tank_code_kg": 0.0,
+      "tank_max_daily_kg": 0.0,
+      "H2_active_hours": 0,
+      "first_unreported_deficit_hour": 7052
+    },
+    {
+      "Mode": 2,
+      "annual_RE_MWh": 39485.958584114276,
+      "renewable_surplus_hours": 1856,
+      "max_RE_MW": 16.98839508332295,
+      "missing_waste_hours": 3357,
+      "underreported_deficit_hours": 134,
+      "unreported_waste_MWh_e_equivalent": 2931.5301003922677,
+      "underreported_deficit_MWh_e": 43.29162659708028,
+      "accounting_only_corrected_DPSP": 0.004396789762889982,
+      "accounting_only_corrected_EWP": 0.06970181224849262,
+      "accounting_only_corrected_LCOE": 0.08332119933534442,
+      "tank_code_kg": 1202.7068744155333,
+      "tank_max_daily_kg": 2408.0081264669357,
+      "H2_active_hours": 2827,
+      "first_unreported_deficit_hour": 7052
+    },
+    {
+      "Mode": 3,
+      "annual_RE_MWh": 37083.45281534652,
+      "renewable_surplus_hours": 1585,
+      "max_RE_MW": 15.938181246154999,
+      "missing_waste_hours": 1088,
+      "underreported_deficit_hours": 74,
+      "unreported_waste_MWh_e_equivalent": 5044.028058921191,
+      "underreported_deficit_MWh_e": 17.691212401338312,
+      "accounting_only_corrected_DPSP": 0.011364574321271916,
+      "accounting_only_corrected_EWP": 0.06507309610176112,
+      "accounting_only_corrected_LCOE": 0.06527804507215254,
+      "tank_code_kg": 1136.7735376575738,
+      "tank_max_daily_kg": 2809.8096643870867,
+      "H2_active_hours": 2227,
+      "first_unreported_deficit_hour": 7052
+    }
+  ],
+  "isolated_counterexamples": {
+    "Mode1_15MW_load_zero_RE_100MWh_stored": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.36,
+      90.0
+    ],
+    "TES_charge_25MWth_100MWh_initial": [
+      110.0,
+      0.44,
+      0.0
+    ]
+  },
+  "runtime": "/tmp/nrhes-python.0gy5sD/bin/python"
+}

@@ -1,0 +1,196 @@
+test_search_exports_each_case_and_frozen_model_reproduces_selection (test_compromise_search.EndToEndTests.test_search_exports_each_case_and_frozen_model_reproduces_selection) ... Physical 1/2, 2 financial combinations: {'charge_mwth': 10, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 2/2, 2 financial combinations: {'charge_mwth': 25, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+{
+  "output": "/private/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmpnfpsbitx/run",
+  "cases": 4,
+  "selected": {
+    "case_id": "P002_E002",
+    "physical_id": "P002",
+    "economic_id": "E002",
+    "charge_mwth": 25,
+    "discharge_mwth": 7.5,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap",
+    "real_rate": 0.1,
+    "project_years": 20,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "numerical_relative_rms": 1.2734666250920257,
+    "numerical_relative_mean_absolute": 0.8299097006724172,
+    "minimum_all_metric_band_percent": 275.2957143048206,
+    "within_10_percent": false,
+    "within_20_percent": false,
+    "within_30_percent": false,
+    "within_50_percent": false,
+    "approximate_TES_feature_score": 6.753710719046101,
+    "missing_late_H2": 0,
+    "shape_feature_score": 6.753710719046101,
+    "mode1_RE_waste_MWh": 414.46517766237343,
+    "valid": true,
+    "compromise_score": 5.923788609707102
+  },
+  "minimum_all_metric_band_percent": 275.2957143048206
+}
+ok
+test_bad_financial_horizon_and_duplicates_rejected (test_compromise_search.SpecificationTests.test_bad_financial_horizon_and_duplicates_rejected) ... ok
+test_default_grid_has_3000_cases_and_only_allowed_hypotheses (test_compromise_search.SpecificationTests.test_default_grid_has_3000_cases_and_only_allowed_hypotheses) ... ok
+test_explicit_score_weight_sensitivity (test_compromise_search.SpecificationTests.test_explicit_score_weight_sensitivity) ... ok
+test_nan_selection_scale_rejected (test_compromise_search.SpecificationTests.test_nan_selection_scale_rejected) ... ok
+test_published_parameter_override_is_rejected (test_compromise_search.SpecificationTests.test_published_parameter_override_is_rejected) ... ok
+test_reporting_bands_and_absolute_relative_distinction (test_compromise_search.SpecificationTests.test_reporting_bands_and_absolute_relative_distinction) ... ok
+test_versioned_selection_retains_fixed_published_parameters (test_compromise_search.SpecificationTests.test_versioned_selection_retains_fixed_published_parameters) ... ok
+test_impossible_order_rejected (test_figure5_reconstruction.ReconstructionTests.test_impossible_order_rejected) ... ok
+test_missing_vertices_are_not_filled_by_collapsing_duplicate_x (test_figure5_reconstruction.ReconstructionTests.test_missing_vertices_are_not_filled_by_collapsing_duplicate_x) ... ok
+test_ordinate_calibration_uses_labelled_ticks_not_padded_frames (test_figure5_reconstruction.ReconstructionTests.test_ordinate_calibration_uses_labelled_ticks_not_padded_frames) ... ok
+test_quantized_identical_x_points_keep_distinct_ordered_hours (test_figure5_reconstruction.ReconstructionTests.test_quantized_identical_x_points_keep_distinct_ordered_hours) ... ok
+test_nsga2_smoke (test_grid_search.IntegrationTests.test_nsga2_smoke) ... NSGA-II mode=1, seed=123, population=4, generations=2
+NSGA-II mode=2, seed=123, population=4, generations=2
+NSGA-II mode=3, seed=123, population=4, generations=2
+ok
+test_original_matches_previously_saved_run (test_grid_search.IntegrationTests.test_original_matches_previously_saved_run) ... ok
+test_small_search_end_to_end_and_source_unchanged (test_grid_search.IntegrationTests.test_small_search_end_to_end_and_source_unchanged) ... Physical case 1/2: {'charge_mwth': 10, 'discharge_mwth': 10, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 2/2: {'charge_mwth': 10, 'discharge_mwth': 10, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'cap'}
+{
+  "output": "/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmpshjtg9qq/run",
+  "best_valid": "P001_E001",
+  "accepted": 0,
+  "original_score": 115.7882851417274,
+  "best_valid_score": 1170.2392009956927,
+  "score_reduction_percent": -910.6715023573364,
+  "optimization": {
+    "status": "not_requested"
+  }
+}
+ok
+test_addition_is_not_silently_accepted (test_grid_search.ModelTests.test_addition_is_not_silently_accepted) ... ok
+test_cashflow_replacements_exclude_endpoint (test_grid_search.ModelTests.test_cashflow_replacements_exclude_endpoint) ... ok
+test_charging_rejection_is_counted (test_grid_search.ModelTests.test_charging_rejection_is_counted) ... ok
+test_discharge_shortage_is_recomputed (test_grid_search.ModelTests.test_discharge_shortage_is_recomputed) ... ok
+test_electrical_minimum_uses_actual_consumption (test_grid_search.ModelTests.test_electrical_minimum_uses_actual_consumption) ... ok
+test_energy_lower_bound (test_grid_search.ModelTests.test_energy_lower_bound) ... ok
+test_exact_target_has_zero_score (test_grid_search.ModelTests.test_exact_target_has_zero_score) ... ok
+test_genome_bounds_and_dynamic_soec (test_grid_search.ModelTests.test_genome_bounds_and_dynamic_soec) ... ok
+test_invalid_assumptions_rejected (test_grid_search.ModelTests.test_invalid_assumptions_rejected) ... ok
+test_mode3_gate_uses_start_of_hour_state (test_grid_search.ModelTests.test_mode3_gate_uses_start_of_hour_state) ... ok
+test_nonunit_efficiencies_conserve_energy (test_grid_search.ModelTests.test_nonunit_efficiencies_conserve_energy) ... ok
+test_shutdown_and_cap_are_distinct (test_grid_search.ModelTests.test_shutdown_and_cap_are_distinct) ... ok
+test_tank_is_maximum_daily_mass (test_grid_search.ModelTests.test_tank_is_maximum_daily_mass) ... ok
+test_frozen_source_case_is_audited_and_wrong_input_hash_rejected (test_paper_input_check.PaperInputCheckTests.test_frozen_source_case_is_audited_and_wrong_input_hash_rejected) ... {
+  "selected_case": "C00001",
+  "all_worst_relative_percent": 1116.8403632852715,
+  "all_rms_relative_percent": 297.76199475632194,
+  "all_within_5_percent": false,
+  "all_metrics_within_5_percent": 8,
+  "all_rows_within_5_percent": 0,
+  "all_within_10_percent": false,
+  "all_metrics_within_10_percent": 10,
+  "all_rows_within_10_percent": 0,
+  "fit_worst_relative_percent": 1116.8403632852715,
+  "fit_rms_relative_percent": 335.25160691724693,
+  "fit_within_5_percent": false,
+  "fit_metrics_within_5_percent": 6,
+  "fit_rows_within_5_percent": 0,
+  "fit_within_10_percent": false,
+  "fit_metrics_within_10_percent": 7,
+  "fit_rows_within_10_percent": 0,
+  "reserved_worst_relative_percent": 478.55628160012634,
+  "reserved_rms_relative_percent": 182.45234595044724,
+  "reserved_within_5_percent": false,
+  "reserved_metrics_within_5_percent": 2,
+  "reserved_rows_within_5_percent": 0,
+  "reserved_within_10_percent": false,
+  "reserved_metrics_within_10_percent": 3,
+  "reserved_rows_within_10_percent": 0,
+  "design_valid": true
+}
+ok
+test_source_control_rejects_weather_or_load_fitting (test_paper_input_check.PaperInputCheckTests.test_source_control_rejects_weather_or_load_fitting) ... ok
+test_H2_uses_both_resources_and_honours_minimum_power (test_paper_reproduction.IndependentPaperTests.test_H2_uses_both_resources_and_honours_minimum_power) ... ok
+test_all_targets_and_grid_sizes (test_paper_reproduction.IndependentPaperTests.test_all_targets_and_grid_sizes) ... ok
+test_artifact_link_parser_and_image_checks (test_paper_reproduction.IndependentPaperTests.test_artifact_link_parser_and_image_checks) ... ok
+test_artifact_validator_rejects_changed_files_code_and_input_values (test_paper_reproduction.IndependentPaperTests.test_artifact_validator_rejects_changed_files_code_and_input_values) ... ok
+test_battery_absent_has_no_fixed_power_capital_cost (test_paper_reproduction.IndependentPaperTests.test_battery_absent_has_no_fixed_power_capital_cost) ... ok
+test_battery_and_TES_discharge_priorities_are_distinct_and_conservative (test_paper_reproduction.IndependentPaperTests.test_battery_and_TES_discharge_priorities_are_distinct_and_conservative) ... ok
+test_battery_paper_reactor_overrides_2025_convention (test_paper_reproduction.IndependentPaperTests.test_battery_paper_reactor_overrides_2025_convention) ... ok
+test_charge_rejection_and_power_limited_shortage_are_counted (test_paper_reproduction.IndependentPaperTests.test_charge_rejection_and_power_limited_shortage_are_counted) ... ok
+test_compiled_and_Python_reference_dispatch_match (test_paper_reproduction.IndependentPaperTests.test_compiled_and_Python_reference_dispatch_match) ... ok
+test_config_rejects_weather_adjustment_and_published_efficiency_fitting (test_paper_reproduction.IndependentPaperTests.test_config_rejects_weather_adjustment_and_published_efficiency_fitting) ... ok
+test_finance_never_changes_dispatch_and_auxiliary_cost_is_explicit (test_paper_reproduction.IndependentPaperTests.test_finance_never_changes_dispatch_and_auxiliary_cost_is_explicit) ... ok
+test_independent_reference_matches_previously_audited_physics_all_ten (test_paper_reproduction.IndependentPaperTests.test_independent_reference_matches_previously_audited_physics_all_ten) ... ok
+test_ineligible_SOEC_fallback_preserves_energy (test_paper_reproduction.IndependentPaperTests.test_ineligible_SOEC_fallback_preserves_energy) ... ok
+test_invalid_parameters_and_config_are_rejected (test_paper_reproduction.IndependentPaperTests.test_invalid_parameters_and_config_are_rejected) ... ok
+test_literal_additive_equation_cannot_pass_resource_audit (test_paper_reproduction.IndependentPaperTests.test_literal_additive_equation_cannot_pass_resource_audit) ... ok
+test_mode1_feasibility_rejects_all_published_generation_interpretations (test_paper_reproduction.IndependentPaperTests.test_mode1_feasibility_rejects_all_published_generation_interpretations) ... ok
+test_original_input_values_are_read_only_and_identical (test_paper_reproduction.IndependentPaperTests.test_original_input_values_are_read_only_and_identical) ... ok
+test_relative_bands_not_percentage_points (test_paper_reproduction.IndependentPaperTests.test_relative_bands_not_percentage_points) ... ok
+test_replacements_exclude_project_endpoint_and_zero_rate_works (test_paper_reproduction.IndependentPaperTests.test_replacements_exclude_project_endpoint_and_zero_rate_works) ... ok
+test_small_grid_full_comparison_and_frozen_rerun (test_paper_reproduction.IndependentPaperTests.test_small_grid_full_comparison_and_frozen_rerun) ... Running actual teacher functions on all ten 2025 designs.
+{
+  "output": "/private/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmp41bujgri/run",
+  "status": "not_within_requested_margin",
+  "selected_case": "G00003",
+  "grid_cases": 4,
+  "comparison": [
+    {
+      "model": "teacher_as_coded",
+      "rms_relative_percent": 297.7938274795277,
+      "worst_relative_percent": 1019.7855938059294,
+      "all_within_5_percent": false,
+      "metrics_within_5_percent": 0,
+      "rows_within_5_percent": 0,
+      "all_within_10_percent": false,
+      "metrics_within_10_percent": 0,
+      "rows_within_10_percent": 0
+    },
+    {
+      "model": "independent_reference",
+      "rms_relative_percent": 297.1660187459868,
+      "worst_relative_percent": 1085.145398099991,
+      "all_within_5_percent": false,
+      "metrics_within_5_percent": 0,
+      "rows_within_5_percent": 0,
+      "all_within_10_percent": false,
+      "metrics_within_10_percent": 0,
+      "rows_within_10_percent": 0
+    },
+    {
+      "model": "selected_grid",
+      "rms_relative_percent": 307.8268883055338,
+      "worst_relative_percent": 1093.3818667985763,
+      "all_within_5_percent": false,
+      "metrics_within_5_percent": 6,
+      "rows_within_5_percent": 0,
+      "all_within_10_percent": false,
+      "metrics_within_10_percent": 10,
+      "rows_within_10_percent": 0
+    }
+  ]
+}
+ok
+test_stc_power_for_both_conflicting_PV_conventions (test_paper_reproduction.IndependentPaperTests.test_stc_power_for_both_conflicting_PV_conventions) ... ok
+test_teacher_canonical_results_are_reproduced_without_modifying_source (test_paper_reproduction.IndependentPaperTests.test_teacher_canonical_results_are_reproduced_without_modifying_source) ... ok
+test_wind_curve_including_cutout_boundary (test_paper_reproduction.IndependentPaperTests.test_wind_curve_including_cutout_boundary) ... ok
+test_absolute_and_capacity_scaled_power (test_table5_calibration.Table5Tests.test_absolute_and_capacity_scaled_power) ... ok
+test_accelerated_curves_and_economics_match_reference_all_ten (test_table5_calibration.Table5Tests.test_accelerated_curves_and_economics_match_reference_all_ten) ... ok
+test_bad_targets_ids_bounds_and_budgets_rejected (test_table5_calibration.Table5Tests.test_bad_targets_ids_bounds_and_budgets_rejected) ... ok
+test_energy_bounds_exclude_ten_percent_fixed_input_mode1 (test_table5_calibration.Table5Tests.test_energy_bounds_exclude_ten_percent_fixed_input_mode1) ... ok
+test_fixed_track_cannot_silently_transform_inputs (test_table5_calibration.Table5Tests.test_fixed_track_cannot_silently_transform_inputs) ... ok
+test_identity_inputs_unchanged_and_weather_shift_is_joint (test_table5_calibration.Table5Tests.test_identity_inputs_unchanged_and_weather_shift_is_joint) ... ok
+test_irradiance_peak_night_and_load_mean_preserved_as_documented (test_table5_calibration.Table5Tests.test_irradiance_peak_night_and_load_mean_preserved_as_documented) ... ok
+test_one_case_artifacts_dedup_and_frozen_rerun (test_table5_calibration.Table5Tests.test_one_case_artifacts_dedup_and_frozen_rerun) ... ok
+test_relative_not_percentage_point_tolerance_and_reserved_rows (test_table5_calibration.Table5Tests.test_relative_not_percentage_point_tolerance_and_reserved_rows) ... ok
+test_small_both_track_search_reports_counts_and_plots (test_table5_calibration.Table5Tests.test_small_both_track_search_reports_counts_and_plots) ... Starting fixed_inputs
+Refining fixed_inputs branch 0: {'track': 'fixed_inputs', 'pv_interpretation': 'area_efficiency', 'charge_model': 'absolute', 'discharge_model': 'absolute', 'weather_shift_hours': 0}
+Selected fixed_inputs: C00001; worst all-row error=1110.3241%
+Starting input_calibrated
+Refining input_calibrated branch 0: {'track': 'input_calibrated', 'pv_interpretation': 'area_efficiency', 'charge_model': 'absolute', 'discharge_model': 'absolute', 'weather_shift_hours': 0}
+Selected input_calibrated: C00013; worst all-row error=1110.3241%
+Completed 26 configurations: /private/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmpipsf5q1u/run
+ok
+test_ten_exact_designs_and_distinct_mode3_targets (test_table5_calibration.Table5Tests.test_ten_exact_designs_and_distinct_mode3_targets) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 20.693s
+
+OK

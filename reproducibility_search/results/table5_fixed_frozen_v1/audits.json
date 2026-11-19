@@ -1,0 +1,212 @@
+[
+  {
+    "id": "1a",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 6.743938740783051e-11,
+    "unaccounted_negative_MWh_e": 7.003642110703368e-11,
+    "max_electric_residual": 1.7763568394002505e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.618527782440651e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "1b",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 6.799361074172339e-11,
+    "unaccounted_negative_MWh_e": 6.866152091333788e-11,
+    "max_electric_residual": 1.7763568394002505e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.618527782440651e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "1c",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 6.566480692526966e-11,
+    "unaccounted_negative_MWh_e": 6.800249252592039e-11,
+    "max_electric_residual": 1.7763568394002505e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.973799150320701e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "2a",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 6.336975388876454e-11,
+    "unaccounted_negative_MWh_e": 6.480860292867874e-11,
+    "max_electric_residual": 3.552713678800501e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.973799150320701e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "2b",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 6.401279506462743e-11,
+    "unaccounted_negative_MWh_e": 6.544098596350523e-11,
+    "max_electric_residual": 3.552713678800501e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.973799150320701e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "2c",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 6.516032158287999e-11,
+    "unaccounted_negative_MWh_e": 6.3851146592242e-11,
+    "max_electric_residual": 1.7763568394002505e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.618527782440651e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "3a",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 8.283862484859128e-11,
+    "unaccounted_negative_MWh_e": 8.730971501336171e-11,
+    "max_electric_residual": 3.552713678800501e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.1368683772161603e-13,
+    "max_total_residual": 4.973799150320701e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "3b",
+    "valid": true,
+    "max_balance_residual_MWh": 5.684341886080802e-14,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 3.7280400988493057e-11,
+    "unaccounted_negative_MWh_e": 4.1309178300252825e-11,
+    "max_electric_residual": 3.552713678800501e-15,
+    "max_heat_residual": 2.220446049250313e-16,
+    "max_storage_residual": 5.684341886080802e-14,
+    "max_total_residual": 2.842170943040401e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "3c",
+    "valid": true,
+    "max_balance_residual_MWh": 5.684341886080802e-14,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 1.907807245515869e-11,
+    "unaccounted_negative_MWh_e": 2.2644996988674393e-11,
+    "max_electric_residual": 3.552713678800501e-15,
+    "max_heat_residual": 2.220446049250313e-16,
+    "max_storage_residual": 5.684341886080802e-14,
+    "max_total_residual": 2.4868995751603507e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  },
+  {
+    "id": "3d",
+    "valid": true,
+    "max_balance_residual_MWh": 1.4210854715202004e-14,
+    "storage_bounds_pass": true,
+    "hydrogen_resources_pass": true,
+    "design_bounds_pass": true,
+    "finite_pass": true,
+    "audit_scope": "separate balances",
+    "unaccounted_positive_MWh_e": 1.6768808563938364e-11,
+    "unaccounted_negative_MWh_e": 1.0899725566559937e-11,
+    "max_electric_residual": 3.552713678800501e-15,
+    "max_heat_residual": 0.0,
+    "max_storage_residual": 1.4210854715202004e-14,
+    "max_total_residual": 1.0658141036401503e-14,
+    "fast_reference_absolute_differences": {
+      "DPSP": 0.0,
+      "EWP": 0.0,
+      "LCOE": 0.0
+    }
+  }
+]

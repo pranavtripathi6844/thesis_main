@@ -1,0 +1,67 @@
+{
+  "description": "Independent paper-first models. Excel values and ordering are immutable.",
+  "physical_grid": {
+    "tes_charge_mwth": [5, 10, 15, 25, 50],
+    "tes_discharge_mwth": [5, 7.5, 10, 15, 25],
+    "tes_rating": ["absolute", "charge_scaled", "discharge_scaled", "both_scaled"],
+    "pv_model": ["area_efficiency", "nameplate_150W"],
+    "reactor_2025_mwth": [25, 50],
+    "inactive_soec": ["keep_split", "renewables_first"],
+    "soc_switch": ["start", "post_guard"]
+  },
+  "economic_grid": {
+    "real_rate": [0.039215686274509796, 0.06, 0.08, 0.10, 0.12],
+    "years": [20, 30, 40],
+    "variable_basis": ["thermal", "electric"],
+    "load_basis": ["served", "requested"],
+    "balance_of_plant": ["embedded", "separate_rated_proxy"],
+    "decommissioning": ["retirement", "project"]
+  },
+  "financial_shortlist_dispatches": 4,
+  "provenance": {
+    "inputs": "InputData.xlsx values and row order are used verbatim: no scale, exponent, offset, time shift, smoothing or reconstructed input substitution.",
+    "2025_reference": "Nie et al., Nuclear Engineering and Design 440 (2025) 114138, Table 5, p12.",
+    "2024_reference": "Nie et al., Applied Thermal Engineering 248 (2024) 123365, Tables 7-9, pp12-13. Table 5 is algorithm performance, NOT system DPSP/LCOE.",
+    "reactor": "2025 main text p7 fixes 25 MWth; appendix A2 says 50 MWth. Both discrete interpretations are screened, not a freely fitted reactor. 2024 always uses its published 50 MWth / 20 MWe.",
+    "PV": "Equation area/efficiency implies 189.44 W at STC whereas appendix lists 150 W. Nameplate normalization is an explicit conflicting-specification hypothesis, not a confirmed formula correction.",
+    "TES": "No numerical TES ratings are supplied. Test absolute MWth and ratings proportional to C_TES/2000. Initial/minimum 5%, unit efficiencies and zero losses stay fixed.",
+    "inactive_soec": "keep_split retains DF allocations when SOEC is ineligible. renewables_first tests redispatch only when hydrogen cannot operate; this alternative is not verified author control.",
+    "soc_switch": "start tests the stated condition at interval start. post_guard additionally rejects a hydrogen-mode allocation that would end below TES factor; an explicitly unverified within-interval interpretation.",
+    "hydrogen": "Valid candidates obey both 35.1 kWhe/kg and 11.15 kWhth/kg requirements, using the smaller resource-limited quantity described in text. The contradictory additive Eq9 is a separate invalid-resource diagnostic, never selected.",
+    "finance": "Rates, project horizon, cost units, E_load meaning and decommissioning conventions are not all identified. Published unit prices are fixed. Replacement is strictly before project end; no salvage.",
+    "balance_of_plant": "embedded treats reactor OCC as encompassing PB and omits separately unidentified inverter sizing. separate_rated_proxy adds Table A3 turbine/compressor at reactor net electrical rating, HX at reactor thermal rating and inverter at max(PV nameplate, battery rating). These are sizing proxies, not an identified plant design; may double-count items embedded in OCC.",
+    "2024_inputs": "2024 scales source load by 550, versus 1000 in 2025. Supplied Excel max demand 15 MW is below the 2024 reactor's 20 MWe: literal unchanged-input DPSP must be zero. Do not count that as successful reproduction.",
+    "algorithm_table": "2024 Table5 HV and convergence statistics require the four repeated MOEA experiments and comparable normalization/reference points. This grid search does not reproduce those statistics.",
+    "scope": "All published capacities, DF, TES factors, efficiencies, component prices and input values fixed. No RL or mode-specific fitted assumptions."
+  },
+  "benchmarks_2025": [
+    {"id":"1a","paper":2025,"mode":1,"pv":60423,"wind":1,"tes":2000,"battery":0,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.0097,"EWP":0.0402,"LCOE":0.094012}},
+    {"id":"1b","paper":2025,"mode":1,"pv":60493,"wind":1,"tes":2000,"battery":0,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.0096,"EWP":0.0403,"LCOE":0.094027}},
+    {"id":"1c","paper":2025,"mode":1,"pv":61422,"wind":1,"tes":1716,"battery":0,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.0099,"EWP":0.0431,"LCOE":0.0908}},
+    {"id":"2a","paper":2025,"mode":2,"pv":80000,"wind":1,"tes":2000,"battery":0,"soec":9.0870,"df":0.5843,"tes_factor":0,"target":{"DPSP":0.0090,"EWP":0.0380,"LCOE":0.1162}},
+    {"id":"2b","paper":2025,"mode":2,"pv":80000,"wind":1,"tes":2000,"battery":0,"soec":8.3216,"df":0.5898,"tes_factor":0,"target":{"DPSP":0.0086,"EWP":0.0384,"LCOE":0.1146}},
+    {"id":"2c","paper":2025,"mode":2,"pv":68419,"wind":1,"tes":2000,"battery":0,"soec":6.1948,"df":0.6290,"tes_factor":0,"target":{"DPSP":0.0090,"EWP":0.0390,"LCOE":0.1084}},
+    {"id":"3a","paper":2025,"mode":3,"pv":71497,"wind":1,"tes":2000,"battery":0,"soec":10.7266,"df":0.2717,"tes_factor":0.8158,"target":{"DPSP":0.0041,"EWP":0.0018,"LCOE":0.1164}},
+    {"id":"3b","paper":2025,"mode":3,"pv":73376,"wind":1,"tes":987,"battery":0,"soec":12.1438,"df":0.2736,"tes_factor":0.6363,"target":{"DPSP":0.0070,"EWP":0.0021,"LCOE":0.1072}},
+    {"id":"3c","paper":2025,"mode":3,"pv":75366,"wind":1,"tes":583,"battery":0,"soec":10.6583,"df":0.2744,"tes_factor":0.3413,"target":{"DPSP":0.0095,"EWP":0.0022,"LCOE":0.0995}},
+    {"id":"3d","paper":2025,"mode":3,"pv":75054,"wind":1,"tes":250,"battery":0,"soec":9.5445,"df":0.3245,"tes_factor":0.8048,"target":{"DPSP":0.0090,"EWP":0.0062,"LCOE":0.0931}}
+  ],
+  "benchmarks_2024": [
+    {"id":"T7_M1","paper":2024,"mode":1,"pv":131144,"wind":0,"tes":46.39,"battery":62.30,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.00538,"LCOE":0.1022}},
+    {"id":"T7_M2","paper":2024,"mode":2,"pv":104666,"wind":0,"tes":200.23,"battery":42.86,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.00930,"LCOE":0.0894}},
+    {"id":"T8_5","paper":2024,"mode":1,"pv":17403,"wind":0,"tes":19.78,"battery":0,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.04829,"LCOE":0.0543}},
+    {"id":"T8_3","paper":2024,"mode":1,"pv":55926,"wind":0,"tes":24.66,"battery":6.78,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.02996,"LCOE":0.0631}},
+    {"id":"T8_1","paper":2024,"mode":1,"pv":100066,"wind":0,"tes":3.90,"battery":44.66,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.00985,"LCOE":0.0883}},
+    {"id":"T8_01","paper":2024,"mode":1,"pv":149315,"wind":0,"tes":3.07,"battery":359.79,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.00099,"LCOE":0.2573}},
+    {"id":"T9_5","paper":2024,"mode":2,"pv":16973,"wind":0,"tes":22.22,"battery":0,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.04849,"LCOE":0.0543}},
+    {"id":"T9_3","paper":2024,"mode":2,"pv":49966,"wind":0,"tes":9.89,"battery":9.17,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.02942,"LCOE":0.0633}},
+    {"id":"T9_1","paper":2024,"mode":2,"pv":104666,"wind":0,"tes":200.23,"battery":42.86,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.00930,"LCOE":0.0894}},
+    {"id":"T9_01","paper":2024,"mode":2,"pv":138248,"wind":0,"tes":3137.13,"battery":47.95,"soec":0,"df":0,"tes_factor":0,"target":{"DPSP":0.00075,"LCOE":0.1165}}
+  ],
+  "algorithm_table5_2024": [
+    {"algorithm":"NSGA-II","HV_max":0.7901,"HV_min":0.7810,"HV_mean":0.7859,"HV_std":0.0024,"mean_convergence_iterations":14.8},
+    {"algorithm":"MOEA/D","HV_max":0.7508,"HV_min":0.7310,"HV_mean":0.7458,"HV_std":0.0047,"mean_convergence_iterations":26.7},
+    {"algorithm":"MOPSO","HV_max":0.7895,"HV_min":0.7689,"HV_mean":0.7839,"HV_std":0.0043,"mean_convergence_iterations":13.1},
+    {"algorithm":"SPEA2","HV_max":0.7900,"HV_min":0.7798,"HV_mean":0.7856,"HV_std":0.0027,"mean_convergence_iterations":18.1}
+  ]
+}

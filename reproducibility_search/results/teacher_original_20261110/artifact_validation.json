@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "protected_original_hashes_unchanged": true,
+  "exact_hourly_input_fingerprint_matches": true,
+  "all_3_designs_match_published_capacities": true,
+  "all_9_targets_verified_against_original_Table5": true,
+  "all_9_relative_errors_verified": true,
+  "all_3_hourly_exports_finite_and_8760_hours": true,
+  "all_3_H2_totals_match_native_CSV": true,
+  "all_3_paper_cached_page_texts_match_original_pdf": true,
+  "all_3_teacher_image_panels_preserve_native_pixels": true,
+  "all_3_comparison_PNGs_decode": true,
+  "original_teacher_plot_sha256": {
+    "Figure2_Mode1_Results.png": "1eae6b3dd51002f61ae2721db1f0ffd8d6de4a8893c3636f1864e4ff6b5a64a3",
+    "Figure3_Mode2_Results.png": "df243a9a9a6cfc7e820395f4c84a0b67014bb85d7ad8778b15e36d9fff0cee1a",
+    "Figure4_Mode3_Results.png": "88b942a52aab3d81e23abb5be45e9b5295c4a5a8797549d4c09eb321d1c19bff"
+  },
+  "files": [
+    "Figure1_Annual_Data.png",
+    "Figure2_Mode1_Results.png",
+    "Figure3_Mode2_Results.png",
+    "Figure4_Mode3_Results.png",
+    "Hydrogen_Production_Data.csv",
+    "InputData.xlsx",
+    "NRHES_Economic_Results.csv",
+    "Paper_Fig10_Mode3.png",
+    "Paper_Fig8_Mode1.png",
+    "Paper_Fig9_Mode2.png",
+    "Paper_vs_Teacher_Mode1.png",
+    "Paper_vs_Teacher_Mode2.png",
+    "Paper_vs_Teacher_Mode3.png",
+    "TEACHER_VS_PAPER_REPORT.md",
+    "Teacher_vs_Table5.csv",
+    "comparison_summary.json",
+    "run_verification.json",
+    "teacher_hourly_Mode1.npz",
+    "teacher_hourly_Mode2.npz",
+    "teacher_hourly_Mode3.npz",
+    "teacher_stdout.log"
+  ]
+}

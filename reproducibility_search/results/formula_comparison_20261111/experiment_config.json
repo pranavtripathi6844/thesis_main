@@ -1,0 +1,146 @@
+{
+  "description": "Only the teacher main's three fixed 2025 designs. No input calibration, capacity optimization or RL.",
+  "benchmark_ids": [
+    "1a",
+    "2a",
+    "3d"
+  ],
+  "physical_grid": {
+    "tes_charge_mwth": [
+      5,
+      10,
+      15,
+      25,
+      50
+    ],
+    "tes_discharge_mwth": [
+      5,
+      7.5,
+      10,
+      15,
+      25
+    ],
+    "tes_rating": [
+      "absolute",
+      "charge_scaled",
+      "discharge_scaled",
+      "both_scaled"
+    ],
+    "pv_model": [
+      "area_efficiency",
+      "nameplate_150W"
+    ],
+    "reactor_2025_mwth": [
+      25,
+      50
+    ],
+    "inactive_soec": [
+      "keep_split",
+      "renewables_first"
+    ],
+    "soc_switch": [
+      "start",
+      "post_guard"
+    ]
+  },
+  "economic_grid": {
+    "real_rate": [
+      0.039215686274509796,
+      0.06,
+      0.08,
+      0.1,
+      0.12
+    ],
+    "years": [
+      20,
+      30,
+      40
+    ],
+    "variable_basis": [
+      "thermal",
+      "electric"
+    ],
+    "load_basis": [
+      "served",
+      "requested"
+    ],
+    "balance_of_plant": [
+      "embedded",
+      "separate_rated_proxy"
+    ],
+    "decommissioning": [
+      "retirement",
+      "project"
+    ]
+  },
+  "financial_shortlist_dispatches": 4,
+  "benchmarks": [
+    {
+      "id": "1a",
+      "paper": 2025,
+      "mode": 1,
+      "pv": 60423,
+      "wind": 1,
+      "tes": 2000,
+      "battery": 0,
+      "soec": 0,
+      "df": 0,
+      "tes_factor": 0,
+      "target": {
+        "DPSP": 0.0097,
+        "EWP": 0.0402,
+        "LCOE": 0.094012
+      }
+    },
+    {
+      "id": "2a",
+      "paper": 2025,
+      "mode": 2,
+      "pv": 80000,
+      "wind": 1,
+      "tes": 2000,
+      "battery": 0,
+      "soec": 9.087,
+      "df": 0.5843,
+      "tes_factor": 0,
+      "target": {
+        "DPSP": 0.009,
+        "EWP": 0.038,
+        "LCOE": 0.1162
+      }
+    },
+    {
+      "id": "3d",
+      "paper": 2025,
+      "mode": 3,
+      "pv": 75054,
+      "wind": 1,
+      "tes": 250,
+      "battery": 0,
+      "soec": 9.5445,
+      "df": 0.3245,
+      "tes_factor": 0.8048,
+      "target": {
+        "DPSP": 0.009,
+        "EWP": 0.0062,
+        "LCOE": 0.0931
+      }
+    }
+  ],
+  "source_provenance": {
+    "inputs": "InputData.xlsx values and row order are used verbatim: no scale, exponent, offset, time shift, smoothing or reconstructed input substitution.",
+    "2025_reference": "Nie et al., Nuclear Engineering and Design 440 (2025) 114138, Table 5, p12.",
+    "2024_reference": "Nie et al., Applied Thermal Engineering 248 (2024) 123365, Tables 7-9, pp12-13. Table 5 is algorithm performance, NOT system DPSP/LCOE.",
+    "reactor": "2025 main text p7 fixes 25 MWth; appendix A2 says 50 MWth. Both discrete interpretations are screened, not a freely fitted reactor. 2024 always uses its published 50 MWth / 20 MWe.",
+    "PV": "Equation area/efficiency implies 189.44 W at STC whereas appendix lists 150 W. Nameplate normalization is an explicit conflicting-specification hypothesis, not a confirmed formula correction.",
+    "TES": "No numerical TES ratings are supplied. Test absolute MWth and ratings proportional to C_TES/2000. Initial/minimum 5%, unit efficiencies and zero losses stay fixed.",
+    "inactive_soec": "keep_split retains DF allocations when SOEC is ineligible. renewables_first tests redispatch only when hydrogen cannot operate; this alternative is not verified author control.",
+    "soc_switch": "start tests the stated condition at interval start. post_guard additionally rejects a hydrogen-mode allocation that would end below TES factor; an explicitly unverified within-interval interpretation.",
+    "hydrogen": "Valid candidates obey both 35.1 kWhe/kg and 11.15 kWhth/kg requirements, using the smaller resource-limited quantity described in text. The contradictory additive Eq9 is a separate invalid-resource diagnostic, never selected.",
+    "finance": "Rates, project horizon, cost units, E_load meaning and decommissioning conventions are not all identified. Published unit prices are fixed. Replacement is strictly before project end; no salvage.",
+    "balance_of_plant": "embedded treats reactor OCC as encompassing PB and omits separately unidentified inverter sizing. separate_rated_proxy adds Table A3 turbine/compressor at reactor net electrical rating, HX at reactor thermal rating and inverter at max(PV nameplate, battery rating). These are sizing proxies, not an identified plant design; may double-count items embedded in OCC.",
+    "2024_inputs": "2024 scales source load by 550, versus 1000 in 2025. Supplied Excel max demand 15 MW is below the 2024 reactor's 20 MWe: literal unchanged-input DPSP must be zero. Do not count that as successful reproduction.",
+    "algorithm_table": "2024 Table5 HV and convergence statistics require the four repeated MOEA experiments and comparable normalization/reference points. This grid search does not reproduce those statistics.",
+    "scope": "All published capacities, DF, TES factors, efficiencies, component prices and input values fixed. No RL or mode-specific fitted assumptions."
+  }
+}

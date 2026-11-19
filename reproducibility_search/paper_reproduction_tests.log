@@ -1,0 +1,68 @@
+test_H2_uses_both_resources_and_honours_minimum_power (test_paper_reproduction.IndependentPaperTests.test_H2_uses_both_resources_and_honours_minimum_power) ... ok
+test_all_targets_and_grid_sizes (test_paper_reproduction.IndependentPaperTests.test_all_targets_and_grid_sizes) ... ok
+test_battery_absent_has_no_fixed_power_capital_cost (test_paper_reproduction.IndependentPaperTests.test_battery_absent_has_no_fixed_power_capital_cost) ... ok
+test_battery_and_TES_discharge_priorities_are_distinct_and_conservative (test_paper_reproduction.IndependentPaperTests.test_battery_and_TES_discharge_priorities_are_distinct_and_conservative) ... ok
+test_battery_paper_reactor_overrides_2025_convention (test_paper_reproduction.IndependentPaperTests.test_battery_paper_reactor_overrides_2025_convention) ... ok
+test_charge_rejection_and_power_limited_shortage_are_counted (test_paper_reproduction.IndependentPaperTests.test_charge_rejection_and_power_limited_shortage_are_counted) ... ok
+test_compiled_and_Python_reference_dispatch_match (test_paper_reproduction.IndependentPaperTests.test_compiled_and_Python_reference_dispatch_match) ... ok
+test_config_rejects_weather_adjustment_and_published_efficiency_fitting (test_paper_reproduction.IndependentPaperTests.test_config_rejects_weather_adjustment_and_published_efficiency_fitting) ... ok
+test_finance_never_changes_dispatch_and_auxiliary_cost_is_explicit (test_paper_reproduction.IndependentPaperTests.test_finance_never_changes_dispatch_and_auxiliary_cost_is_explicit) ... ok
+test_independent_reference_matches_previously_audited_physics_all_ten (test_paper_reproduction.IndependentPaperTests.test_independent_reference_matches_previously_audited_physics_all_ten) ... ok
+test_ineligible_SOEC_fallback_preserves_energy (test_paper_reproduction.IndependentPaperTests.test_ineligible_SOEC_fallback_preserves_energy) ... ok
+test_invalid_parameters_and_config_are_rejected (test_paper_reproduction.IndependentPaperTests.test_invalid_parameters_and_config_are_rejected) ... ok
+test_literal_additive_equation_cannot_pass_resource_audit (test_paper_reproduction.IndependentPaperTests.test_literal_additive_equation_cannot_pass_resource_audit) ... ok
+test_mode1_feasibility_rejects_all_published_generation_interpretations (test_paper_reproduction.IndependentPaperTests.test_mode1_feasibility_rejects_all_published_generation_interpretations) ... ok
+test_original_input_values_are_read_only_and_identical (test_paper_reproduction.IndependentPaperTests.test_original_input_values_are_read_only_and_identical) ... ok
+test_relative_bands_not_percentage_points (test_paper_reproduction.IndependentPaperTests.test_relative_bands_not_percentage_points) ... ok
+test_replacements_exclude_project_endpoint_and_zero_rate_works (test_paper_reproduction.IndependentPaperTests.test_replacements_exclude_project_endpoint_and_zero_rate_works) ... ok
+test_small_grid_full_comparison_and_frozen_rerun (test_paper_reproduction.IndependentPaperTests.test_small_grid_full_comparison_and_frozen_rerun) ... Running actual teacher functions on all ten 2025 designs.
+{
+  "output": "/private/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmpwgh9hv5h/run",
+  "status": "not_within_requested_margin",
+  "selected_case": "G00003",
+  "grid_cases": 4,
+  "comparison": [
+    {
+      "model": "teacher_as_coded",
+      "rms_relative_percent": 297.7938274795277,
+      "worst_relative_percent": 1019.7855938059294,
+      "all_within_5_percent": false,
+      "metrics_within_5_percent": 0,
+      "rows_within_5_percent": 0,
+      "all_within_10_percent": false,
+      "metrics_within_10_percent": 0,
+      "rows_within_10_percent": 0
+    },
+    {
+      "model": "independent_reference",
+      "rms_relative_percent": 297.1660187459868,
+      "worst_relative_percent": 1085.145398099991,
+      "all_within_5_percent": false,
+      "metrics_within_5_percent": 0,
+      "rows_within_5_percent": 0,
+      "all_within_10_percent": false,
+      "metrics_within_10_percent": 0,
+      "rows_within_10_percent": 0
+    },
+    {
+      "model": "selected_grid",
+      "rms_relative_percent": 307.8268883055338,
+      "worst_relative_percent": 1093.3818667985763,
+      "all_within_5_percent": false,
+      "metrics_within_5_percent": 6,
+      "rows_within_5_percent": 0,
+      "all_within_10_percent": false,
+      "metrics_within_10_percent": 10,
+      "rows_within_10_percent": 0
+    }
+  ]
+}
+ok
+test_stc_power_for_both_conflicting_PV_conventions (test_paper_reproduction.IndependentPaperTests.test_stc_power_for_both_conflicting_PV_conventions) ... ok
+test_teacher_canonical_results_are_reproduced_without_modifying_source (test_paper_reproduction.IndependentPaperTests.test_teacher_canonical_results_are_reproduced_without_modifying_source) ... ok
+test_wind_curve_including_cutout_boundary (test_paper_reproduction.IndependentPaperTests.test_wind_curve_including_cutout_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 5.828s
+
+OK

@@ -1,0 +1,20 @@
+{
+  "physics": {
+    "tes_charge_mwth": 25,
+    "tes_discharge_mwth": 10,
+    "tes_rating": "absolute",
+    "pv_model": "nameplate_150W",
+    "reactor_2025_mwth": 25,
+    "inactive_soec": "renewables_first",
+    "soc_switch": "start",
+    "hydrogen_formula": "minimum"
+  },
+  "finance": {
+    "real_rate": 0.08,
+    "years": 40,
+    "variable_basis": "thermal",
+    "load_basis": "requested",
+    "balance_of_plant": "separate_rated_proxy",
+    "decommissioning": "retirement"
+  }
+}

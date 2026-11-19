@@ -1,0 +1,92 @@
+{
+  "status": "approximate_vector_digitization_not_author_raw_data",
+  "paper_sha256": "9c6122dc9a9b912b705722e1cb9b2cb8e2131514f183a1fece30f7a4ee59fc14",
+  "paper_page": 8,
+  "figure": 5,
+  "method": "Blue vector strokes, composed PDF affine transforms, repeated chunk endpoints removed; ordered nearest-hour assignment; linear interpolation of omitted collinear vertices.",
+  "x_frame_pdf_points": [
+    156.6796,
+    485.645
+  ],
+  "series": {
+    "G_Tot": {
+      "vector_vertices": 6881,
+      "interpolated_missing_hours": 1879,
+      "maximum_hour_assignment_difference": 0.9291682347138703,
+      "min": 0.0,
+      "max": 1052.1308655459773,
+      "annual_sum": 1775969.8368934358,
+      "axis_mapping": {
+        "pdf_y": [
+          326.8806,
+          372.1087
+        ],
+        "values": [
+          0,
+          1200
+        ]
+      }
+    },
+    "T_a": {
+      "vector_vertices": 8560,
+      "interpolated_missing_hours": 200,
+      "maximum_hour_assignment_difference": 0.9371569168069982,
+      "min": -12.79598915054612,
+      "max": 34.52818802183148,
+      "annual_sum": 75064.25986962089,
+      "axis_mapping": {
+        "pdf_y": [
+          248.7674,
+          294.0047
+        ],
+        "values": [
+          -20,
+          40
+        ]
+      }
+    },
+    "V_anem": {
+      "vector_vertices": 8644,
+      "interpolated_missing_hours": 116,
+      "maximum_hour_assignment_difference": 0.932010478913071,
+      "min": 0.9118259508640998,
+      "max": 8.67785347651742,
+      "annual_sum": 21544.72635716147,
+      "axis_mapping": {
+        "pdf_y": [
+          170.5979,
+          215.8357
+        ],
+        "values": [
+          0,
+          10
+        ]
+      }
+    },
+    "P_grid": {
+      "vector_vertices": 8723,
+      "interpolated_missing_hours": 37,
+      "maximum_hour_assignment_difference": 0.9314061600407513,
+      "min": 9.556220682703405,
+      "max": 14.270495028493869,
+      "annual_sum": 101323.05170896905,
+      "axis_mapping": {
+        "pdf_y": [
+          92.4978,
+          137.7356
+        ],
+        "values": [
+          9,
+          15
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "PDF coordinates are quantized. Hour assignments are approximate, not recovered timestamps.",
+    "The plot omits some collinear vertices; missing hours are interpolated.",
+    "Axis calibration and source rendering precision introduce ordinate uncertainty.",
+    "No weather/load fitting to Table 5 targets is performed in this extraction.",
+    "Neither author data identity nor exact curve values can be claimed."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "description": "2025 HTSE paper reproduction. All ranges are hypotheses, not established author settings.",
+  "physical_grid": {
+    "charge_mwth": [10.0, 25.0],
+    "discharge_mwth": [10.0, 25.0],
+    "hydrogen_formula": ["minimum", "addition"],
+    "thermal_gate": ["legacy", "resource"],
+    "overflow": ["cap", "shutdown"]
+  },
+  "economic_grid": {
+    "real_rate": [0.02, 0.0392156862745098, 0.06, 0.08],
+    "variable_cost_basis": ["thermal", "electric"],
+    "decommissioning": ["retirement", "project"]
+  },
+  "project_years": 20,
+  "balance_tolerance_mwh": 1e-7,
+  "tolerances": {
+    "DPSP": {"relative": 0.1, "absolute": 0.0005},
+    "EWP": {"relative": 0.1, "absolute": 0.0005},
+    "LCOE": {"relative": 0.05, "absolute": 0.002}
+  },
+  "training": [
+    {"mode": 1, "config": {"N_pv": 60423, "C_TES": 2000.0, "N_wt": 1, "P_SOEC": 0.0, "DF": 0.0, "TES_factor": 0.0}, "target": {"DPSP": 0.0097, "EWP": 0.0402, "LCOE": 0.094012}},
+    {"mode": 2, "config": {"N_pv": 80000, "C_TES": 2000.0, "N_wt": 1, "P_SOEC": 9.087, "DF": 0.5843, "TES_factor": 0.0}, "target": {"DPSP": 0.009, "EWP": 0.038, "LCOE": 0.1162}},
+    {"mode": 3, "config": {"N_pv": 75054, "C_TES": 250.0, "N_wt": 1, "P_SOEC": 9.5445, "DF": 0.3245, "TES_factor": 0.8048}, "target": {"DPSP": 0.009, "EWP": 0.0062, "LCOE": 0.0931}}
+  ],
+  "holdout": [
+    {"mode": 1, "config": {"N_pv": 60493, "C_TES": 2000.0, "N_wt": 1, "P_SOEC": 0.0, "DF": 0.0, "TES_factor": 0.0}, "target": {"DPSP": 0.0096, "EWP": 0.0403, "LCOE": 0.094027}},
+    {"mode": 2, "config": {"N_pv": 80000, "C_TES": 2000.0, "N_wt": 1, "P_SOEC": 8.3216, "DF": 0.5898, "TES_factor": 0.0}, "target": {"DPSP": 0.0086, "EWP": 0.0384, "LCOE": 0.1146}},
+    {"mode": 3, "config": {"N_pv": 75366, "C_TES": 583.0, "N_wt": 1, "P_SOEC": 10.6583, "DF": 0.2744, "TES_factor": 0.3413}, "target": {"DPSP": 0.0095, "EWP": 0.0022, "LCOE": 0.0995}}
+  ],
+  "plot_features": [
+    {"mode": 1, "series": "LF", "start": 4350, "end": 4550, "target": 0.71, "tolerance": 0.05},
+    {"mode": 2, "series": "LF", "start": 4350, "end": 4550, "target": 0.88, "tolerance": 0.05},
+    {"mode": 3, "series": "LF", "start": 4350, "end": 4550, "target": 0.088, "tolerance": 0.05}
+  ],
+  "reference_source": {
+    "paper": "Nie et al., Nuclear Engineering and Design 440 (2025) 114138",
+    "doi": "10.1016/j.nucengdes.2025.114138",
+    "training": "Table 5, p.12: Mode 1 row 1; Mode 2 row 1; Mode 3 cost-constrained row",
+    "holdout": "Table 5: Mode 1 row 2; Mode 2 row 2; Mode 3 row with TES=583 MWhth",
+    "plot_features": "Approximate TES dips near hour 4450, text pp.12-13; tolerances are analyst-selected",
+    "qualitative_checks": "Mode 1 has no renewable curtailment; Fig.10 contains occasional late-year Mode 3 hydrogen events",
+    "warning": "No original hourly author data. Printed script H2 targets 138/98.8 tonnes are NOT used."
+  },
+  "optimization": {"population": 20, "generations": 10, "seeds": [0, 1]}
+}

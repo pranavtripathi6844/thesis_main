@@ -1,0 +1,14 @@
+{
+  "solar_kWh_m2": 1644.034893621974,
+  "original_solar_kWh_m2": 2789.4373600000004,
+  "annual_load_MWh": 105094.87489243706,
+  "original_annual_load_MWh": 101306.89644221628,
+  "load_min_MW": 9.568187208325215,
+  "load_max_MW": 15.150542896854054,
+  "changed_hours": {
+    "G_Tot": 7324,
+    "T_a": 8759,
+    "V_anem": 8564,
+    "P_grid": 8760
+  }
+}

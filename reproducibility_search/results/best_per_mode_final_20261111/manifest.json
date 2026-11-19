@@ -1,0 +1,21 @@
+{
+  "source_run": "/Users/pranavtripathi/Desktop/Thesis_initial/Initial_implementation/reproducibility_search/results/formula_comparison_final_20261111",
+  "selection": "Candidates: every valid configuration of the four grid searches (teacher script / our model x\nminimum / addition) plus the teacher's original run at the professor's settings (both formulas).\nScore per mode: worst relative error + 0.1 x RMS relative error over that mode's DPSP, EWP, LCOE.\nExact ties: fewest settings different from the professor's, then the minimum (teacher's own) H2\nformula, then configuration ID. Mode 1 makes no hydrogen, so its two formula runs tie exactly.",
+  "best": [
+    {
+      "mode": 1,
+      "config_id": "TM-P0521-F157",
+      "source": "Teacher script grid search, minimum H2 formula"
+    },
+    {
+      "mode": 2,
+      "config_id": "TM-P0523-F158",
+      "source": "Teacher script grid search, minimum H2 formula"
+    },
+    {
+      "mode": 3,
+      "config_id": "TM-P0441-F115",
+      "source": "Teacher script grid search, minimum H2 formula"
+    }
+  ]
+}

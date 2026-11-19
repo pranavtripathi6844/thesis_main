@@ -1,0 +1,21 @@
+{
+  "engine": "teacher_script",
+  "hydrogen_formula": "minimum",
+  "physics": {
+    "tes_charge_mwth": 10,
+    "tes_discharge_mwth": 7.5,
+    "tes_rating": "both_scaled",
+    "pv_model": "nameplate_150W",
+    "reactor_2025_mwth": 25,
+    "inactive_soec": "keep_split",
+    "soc_switch": "start"
+  },
+  "finance": {
+    "real_rate": 0.06,
+    "years": 20,
+    "variable_basis": "thermal",
+    "load_basis": "requested",
+    "balance_of_plant": "separate_rated_proxy",
+    "decommissioning": "project"
+  }
+}

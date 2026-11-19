@@ -1,0 +1,64 @@
+Physical case 1/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 2/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 3/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 4/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 5/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 6/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 7/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 8/32: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 9/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 10/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 11/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 12/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 13/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 14/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 15/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 16/32: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 17/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 18/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 19/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 20/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 21/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 22/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 23/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 24/32: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 25/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 26/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 27/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 28/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+Physical case 29/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical case 30/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'legacy', 'overflow': 'shutdown'}
+Physical case 31/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 32/32: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'shutdown'}
+NSGA-II mode=1, seed=0, population=20, generations=10
+NSGA-II mode=1, seed=1, population=20, generations=10
+NSGA-II mode=2, seed=0, population=20, generations=10
+NSGA-II mode=2, seed=1, population=20, generations=10
+NSGA-II mode=3, seed=0, population=20, generations=10
+NSGA-II mode=3, seed=1, population=20, generations=10
+{
+  "output": "results/run_20261029",
+  "best_valid": "P019_E013",
+  "accepted": 0,
+  "original_score": 115.7882851417274,
+  "best_valid_score": 181.4813382628244,
+  "score_reduction_percent": -56.735491885631845,
+  "optimization": {
+    "status": "exploratory_completed",
+    "evaluations": 1200,
+    "front_solutions": 120,
+    "selected_modes": [
+      1,
+      2,
+      3
+    ],
+    "population": 20,
+    "generations": 10,
+    "seeds": [
+      0,
+      1
+    ],
+    "warning": "Limited-budget NSGA-II, not demonstrated convergence and not the paper's MOPSO. Front plots cover every returned solution; transient evaluations are in CSV.",
+    "baseline_matched_paper": false
+  }
+}

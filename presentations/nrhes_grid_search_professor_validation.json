@@ -1,0 +1,79 @@
+{
+  "slideCount": 7,
+  "designRowsChecked": 10,
+  "implementationResultsChecked": 3,
+  "factsMatchFrozenRun": true,
+  "offline": true,
+  "speakerNotes": true,
+  "layoutChecks": [
+    {
+      "slide": 1,
+      "title": "Grid search for a faithfulpaper reproduction",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    },
+    {
+      "slide": 2,
+      "title": "Three comparison runs, two implementations",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    },
+    {
+      "slide": 3,
+      "title": "Ten published designs, not ten fitted models",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    },
+    {
+      "slide": 4,
+      "title": "A staged search of shared assumptions",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    },
+    {
+      "slide": 5,
+      "title": "Each candidate is tested against all 30 cells",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    },
+    {
+      "slide": 6,
+      "title": "LCOE matches; reliability and waste do not",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    },
+    {
+      "slide": 7,
+      "title": "Validated code; reproduction remains unresolved",
+      "frame": "960x540",
+      "render": "1920x1080",
+      "overflow": false,
+      "footerCollision": false
+    }
+  ],
+  "sourceRun": "paper_first_unchanged_v1",
+  "sourceResultsDate": "2026-10-31",
+  "presentationDate": "2026-11-09",
+  "output": "/Users/pranavtripathi/Desktop/Thesis_initial/outputs/nrhes_grid_search_professor.pptx",
+  "officeZipValid": true,
+  "allXmlValid": true,
+  "notesSlides": 7,
+  "externalRelationships": 0,
+  "aspectRatio": "16:9",
+  "embeddedSlidesMatchVerifiedRenders": true,
+  "exampleResultsChecked": true,
+  "preview": "/Users/pranavtripathi/Desktop/Thesis_initial/outputs/nrhes_grid_search_professor_preview.png",
+  "pptxSha256": "ba10272f26ef0bfb13f0d3631934524b5a72a006af8957c99cf2d928e680d573"
+}

@@ -1,0 +1,79 @@
+test_search_exports_each_case_and_frozen_model_reproduces_selection (test_compromise_search.EndToEndTests.test_search_exports_each_case_and_frozen_model_reproduces_selection) ... Physical 1/2, 2 financial combinations: {'charge_mwth': 10, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 2/2, 2 financial combinations: {'charge_mwth': 25, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+{
+  "output": "/private/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmp2yzrhpss/run",
+  "cases": 4,
+  "selected": {
+    "case_id": "P002_E002",
+    "physical_id": "P002",
+    "economic_id": "E002",
+    "charge_mwth": 25,
+    "discharge_mwth": 7.5,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap",
+    "real_rate": 0.1,
+    "project_years": 20,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "numerical_relative_rms": 1.2734666250920257,
+    "numerical_relative_mean_absolute": 0.8299097006724172,
+    "minimum_all_metric_band_percent": 275.2957143048206,
+    "within_10_percent": false,
+    "within_20_percent": false,
+    "within_30_percent": false,
+    "within_50_percent": false,
+    "approximate_TES_feature_score": 6.753710719046101,
+    "missing_late_H2": 0,
+    "shape_feature_score": 6.753710719046101,
+    "mode1_RE_waste_MWh": 414.46517766237343,
+    "valid": true,
+    "compromise_score": 5.923788609707102
+  },
+  "minimum_all_metric_band_percent": 275.2957143048206
+}
+ok
+test_bad_financial_horizon_and_duplicates_rejected (test_compromise_search.SpecificationTests.test_bad_financial_horizon_and_duplicates_rejected) ... ok
+test_default_grid_has_3000_cases_and_only_allowed_hypotheses (test_compromise_search.SpecificationTests.test_default_grid_has_3000_cases_and_only_allowed_hypotheses) ... ok
+test_explicit_score_weight_sensitivity (test_compromise_search.SpecificationTests.test_explicit_score_weight_sensitivity) ... ok
+test_nan_selection_scale_rejected (test_compromise_search.SpecificationTests.test_nan_selection_scale_rejected) ... ok
+test_published_parameter_override_is_rejected (test_compromise_search.SpecificationTests.test_published_parameter_override_is_rejected) ... ok
+test_reporting_bands_and_absolute_relative_distinction (test_compromise_search.SpecificationTests.test_reporting_bands_and_absolute_relative_distinction) ... ok
+test_versioned_selection_retains_fixed_published_parameters (test_compromise_search.SpecificationTests.test_versioned_selection_retains_fixed_published_parameters) ... ok
+test_nsga2_smoke (test_grid_search.IntegrationTests.test_nsga2_smoke) ... NSGA-II mode=1, seed=123, population=4, generations=2
+NSGA-II mode=2, seed=123, population=4, generations=2
+NSGA-II mode=3, seed=123, population=4, generations=2
+ok
+test_original_matches_previously_saved_run (test_grid_search.IntegrationTests.test_original_matches_previously_saved_run) ... ok
+test_small_search_end_to_end_and_source_unchanged (test_grid_search.IntegrationTests.test_small_search_end_to_end_and_source_unchanged) ... Physical case 1/2: {'charge_mwth': 10, 'discharge_mwth': 10, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical case 2/2: {'charge_mwth': 10, 'discharge_mwth': 10, 'hydrogen_formula': 'addition', 'thermal_gate': 'resource', 'overflow': 'cap'}
+{
+  "output": "/var/folders/_n/dg1d88vs2mn7xbly_mnm_j_m0000gn/T/tmphl5y95n2/run",
+  "best_valid": "P001_E001",
+  "accepted": 0,
+  "original_score": 115.7882851417274,
+  "best_valid_score": 1170.2392009956927,
+  "score_reduction_percent": -910.6715023573364,
+  "optimization": {
+    "status": "not_requested"
+  }
+}
+ok
+test_addition_is_not_silently_accepted (test_grid_search.ModelTests.test_addition_is_not_silently_accepted) ... ok
+test_cashflow_replacements_exclude_endpoint (test_grid_search.ModelTests.test_cashflow_replacements_exclude_endpoint) ... ok
+test_charging_rejection_is_counted (test_grid_search.ModelTests.test_charging_rejection_is_counted) ... ok
+test_discharge_shortage_is_recomputed (test_grid_search.ModelTests.test_discharge_shortage_is_recomputed) ... ok
+test_electrical_minimum_uses_actual_consumption (test_grid_search.ModelTests.test_electrical_minimum_uses_actual_consumption) ... ok
+test_energy_lower_bound (test_grid_search.ModelTests.test_energy_lower_bound) ... ok
+test_exact_target_has_zero_score (test_grid_search.ModelTests.test_exact_target_has_zero_score) ... ok
+test_genome_bounds_and_dynamic_soec (test_grid_search.ModelTests.test_genome_bounds_and_dynamic_soec) ... ok
+test_invalid_assumptions_rejected (test_grid_search.ModelTests.test_invalid_assumptions_rejected) ... ok
+test_mode3_gate_uses_start_of_hour_state (test_grid_search.ModelTests.test_mode3_gate_uses_start_of_hour_state) ... ok
+test_nonunit_efficiencies_conserve_energy (test_grid_search.ModelTests.test_nonunit_efficiencies_conserve_energy) ... ok
+test_shutdown_and_cap_are_distinct (test_grid_search.ModelTests.test_shutdown_and_cap_are_distinct) ... ok
+test_tank_is_maximum_daily_mass (test_grid_search.ModelTests.test_tank_is_maximum_daily_mass) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 5.174s
+
+OK

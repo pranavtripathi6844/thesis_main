@@ -1,0 +1,22 @@
+{
+  "description": "Only the teacher main's three fixed 2025 designs. No input calibration, capacity optimization or RL.",
+  "benchmark_ids": ["1a", "2a", "3d"],
+  "physical_grid": {
+    "tes_charge_mwth": [5, 10, 15, 25, 50],
+    "tes_discharge_mwth": [5, 7.5, 10, 15, 25],
+    "tes_rating": ["absolute", "charge_scaled", "discharge_scaled", "both_scaled"],
+    "pv_model": ["area_efficiency", "nameplate_150W"],
+    "reactor_2025_mwth": [25, 50],
+    "inactive_soec": ["keep_split", "renewables_first"],
+    "soc_switch": ["start", "post_guard"]
+  },
+  "economic_grid": {
+    "real_rate": [0.039215686274509796, 0.06, 0.08, 0.10, 0.12],
+    "years": [20, 30, 40],
+    "variable_basis": ["thermal", "electric"],
+    "load_basis": ["served", "requested"],
+    "balance_of_plant": ["embedded", "separate_rated_proxy"],
+    "decommissioning": ["retirement", "project"]
+  },
+  "financial_shortlist_dispatches": 4
+}

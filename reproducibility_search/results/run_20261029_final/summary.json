@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-10-28T23:22:41.044662+00:00",
+  "python": "3.13.5",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8",
+    "openpyxl": "3.1.5",
+    "pymoo": "0.6.2"
+  },
+  "original_model_sha256": "4434541cf463a82b0bb3cf4d3dc6b7315970d08e03205a232fc3c0981fb151a9",
+  "input_sha256": "54c1d34a147db99d2f7a1e8137527571ba35834ae5c2862cc0a48949b3d2f8e3",
+  "original_matlab_sha256": "945462d21e855beaa4427f1fe8a5d4bc78b378ab21305911401416f765227cf9",
+  "search_script_sha256": "3148a5d1746f05556753ca403028e0040f45f5fe26fdc2f2a9ad851e121bbfd4",
+  "search_config_sha256": "e604466601a23b8374bc551b01b7452082c91c359aac9382173e2f66c4fc635c",
+  "physical_cases": 32,
+  "economic_cases": 16,
+  "combined_cases": 512,
+  "valid_combined_cases": 256,
+  "accepted_baselines": 0,
+  "original_metric_score": 115.7882851417274,
+  "original_numerical_targets_pass": false,
+  "original_physics_pass": false,
+  "best_valid_candidate": {
+    "case_id": "P019_E013",
+    "physical_id": "P019",
+    "economic_id": "E013",
+    "charge_mwth": 25.0,
+    "discharge_mwth": 10.0,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap",
+    "real_rate": 0.08,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "valid": true,
+    "metric_score": 181.4813382628244,
+    "numerical_targets_pass": false,
+    "approximate_plot_features_pass": false,
+    "qualitative_plot_checks_pass": false,
+    "accepted_baseline": false
+  },
+  "score_reduction_percent": -56.735491885631845,
+  "heldout_metric_score": 146.2173472245692,
+  "heldout_numerical_targets_pass": false,
+  "energy_lower_bound": {
+    "applicable": true,
+    "generation_MWh_e_equivalent": 117576.48518436373,
+    "load_MWh": 101306.89644221628,
+    "maximum_net_storage_MWh_e_equivalent": 760.0,
+    "minimum_possible_waste_MWh_e_equivalent": 15509.588742147447,
+    "minimum_possible_EWP": 0.1319106343230784,
+    "assumptions": "Current inputs and generation equations; constant reactor; lossless TES; no H2; available-energy EWP denominator. Not a claim about alternative paper definitions.",
+    "paper_Mode1_EWP": 0.0402
+  },
+  "optimization": {
+    "status": "exploratory_completed",
+    "evaluations": 1200,
+    "front_solutions": 120,
+    "selected_modes": [
+      1,
+      2,
+      3
+    ],
+    "population": 20,
+    "generations": 10,
+    "seeds": [
+      0,
+      1
+    ],
+    "warning": "Limited-budget NSGA-II, not demonstrated convergence and not the paper's MOPSO. Front plots cover every returned solution; transient evaluations are in CSV.",
+    "baseline_matched_paper": false
+  },
+  "paper_hourly_RMSE": null,
+  "limitations": [
+    "No original author hourly series; no image-pixel fitting or claimed hourly paper RMSE.",
+    "Model assumptions and capacities are not tuned together during baseline identification.",
+    "Negative error reduction means a worse numerical match, not an improvement.",
+    "Addition diagnostics may look closer but cannot be accepted if energy resources fail.",
+    "Plot-feature thresholds and metric tolerances are analyst-selected, not author guarantees.",
+    "Shared hourly plots are intentional: economic variants have identical dispatch.",
+    "No salvage credit; decommissioning convention is an explicit unresolved economic hypothesis."
+  ]
+}

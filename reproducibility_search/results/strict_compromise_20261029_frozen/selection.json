@@ -1,0 +1,176 @@
+{
+  "status": "provisional_compromise_not_professor_approved",
+  "selected_case": {
+    "case_id": "P044_E049",
+    "physical_id": "P044",
+    "economic_id": "E049",
+    "charge_mwth": 25.0,
+    "discharge_mwth": 7.5,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap",
+    "real_rate": 0.1,
+    "project_years": 20,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "numerical_relative_rms": 1.2734666250920257,
+    "numerical_relative_mean_absolute": 0.8299097006724172,
+    "minimum_all_metric_band_percent": 275.2957143048206,
+    "within_10_percent": false,
+    "within_20_percent": false,
+    "within_30_percent": false,
+    "within_50_percent": false,
+    "approximate_TES_feature_score": 6.753710719046101,
+    "missing_late_H2": 0,
+    "shape_feature_score": 6.753710719046101,
+    "mode1_RE_waste_MWh": 414.46517766237343,
+    "valid": true,
+    "compromise_score": 5.923788609707102
+  },
+  "physics": {
+    "charge_mwth": 25.0,
+    "discharge_mwth": 7.5,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap"
+  },
+  "economics": {
+    "decommissioning": "retirement",
+    "project_years": 20,
+    "real_rate": 0.1,
+    "variable_cost_basis": "thermal"
+  },
+  "fixed_params": {
+    "smTMSR": {
+      "P_th": 25.0,
+      "eta_PB": 0.4,
+      "P_e": 10.0
+    },
+    "PV": {
+      "P_rated": 150.0,
+      "A": 1.382772,
+      "eta_r": 0.137,
+      "eta_pc": 1.0,
+      "mu": 0.005,
+      "T_ref": 25.0,
+      "NOCT": 47.5
+    },
+    "WT": {
+      "P_rated": 1.5,
+      "z_hub": 70.0,
+      "z_anem": 10.0,
+      "z0": 1.5,
+      "v_ci": 3.0,
+      "v_co": 22.0,
+      "v_r": 13.0
+    },
+    "TES": {
+      "LF_min": 0.05,
+      "LF_max": 1.0,
+      "eta_ch": 1.0,
+      "eta_dis": 1.0,
+      "P_max": 10.0,
+      "sigma": 0.0
+    },
+    "HTSE": {
+      "K_th": 89.68609865470852,
+      "K_e": 28.49002849002849,
+      "P_e_min_ratio": 0.15
+    },
+    "econ": {
+      "PV_inv_cost": 1040.0,
+      "PV_OM_cost": 9.0,
+      "PV_lifetime": 20,
+      "WT_inv_cost": 1695.0,
+      "WT_OM_cost": 51.0,
+      "WT_lifetime": 20,
+      "TES_inv_cost": 12.0,
+      "TES_OM_cost": 0.24,
+      "TES_lifetime": 20,
+      "HTSE_inv_cost": 662.0,
+      "HTSE_OM_fixed": 58.69,
+      "HTSE_lifetime": 5,
+      "H2_tank_inv": 400.0,
+      "H2_tank_OM": 15.0,
+      "H2_tank_lifetime": 20,
+      "smTMSR_OCC": 3000.0,
+      "smTMSR_FOM": 90.26,
+      "smTMSR_VOM": 2.17,
+      "smTMSR_fuel": 0.381,
+      "smTMSR_decom": 621.0,
+      "smTMSR_lifetime": 60,
+      "H2_price": 2.75,
+      "H2_transport": 0.6909,
+      "nominal_discount_rate": 0.06,
+      "inflation_rate": 0.02,
+      "project_lifetime": 20
+    },
+    "dt": 1.0,
+    "hours_per_year": 8760
+  },
+  "training": [
+    {
+      "mode": 1,
+      "config": {
+        "N_pv": 60423,
+        "C_TES": 2000.0,
+        "N_wt": 1,
+        "P_SOEC": 0.0,
+        "DF": 0.0,
+        "TES_factor": 0.0
+      },
+      "target": {
+        "DPSP": 0.0097,
+        "EWP": 0.0402,
+        "LCOE": 0.094012
+      }
+    },
+    {
+      "mode": 2,
+      "config": {
+        "N_pv": 80000,
+        "C_TES": 2000.0,
+        "N_wt": 1,
+        "P_SOEC": 9.087,
+        "DF": 0.5843,
+        "TES_factor": 0.0
+      },
+      "target": {
+        "DPSP": 0.009,
+        "EWP": 0.038,
+        "LCOE": 0.1162
+      }
+    },
+    {
+      "mode": 3,
+      "config": {
+        "N_pv": 75054,
+        "C_TES": 250.0,
+        "N_wt": 1,
+        "P_SOEC": 9.5445,
+        "DF": 0.3245,
+        "TES_factor": 0.8048
+      },
+      "target": {
+        "DPSP": 0.009,
+        "EWP": 0.0062,
+        "LCOE": 0.0931
+      }
+    }
+  ],
+  "model_sha256": "4434541cf463a82b0bb3cf4d3dc6b7315970d08e03205a232fc3c0981fb151a9",
+  "input_sha256": "54c1d34a147db99d2f7a1e8137527571ba35834ae5c2862cc0a48949b3d2f8e3",
+  "balance_tolerance_mwh": 1e-07,
+  "search_selection_rule": {
+    "numerical_reference_relative_error": 0.25,
+    "numerical_weight": 0.5,
+    "missing_late_hydrogen_feature_penalty": 1.0,
+    "shortlist_physical_cases": 5
+  },
+  "limitations": [
+    "Approximate features are not full waveform agreement.",
+    "Reactor retirement age 60 years is retained, unsourced.",
+    "No reported band is an agreed acceptance threshold.",
+    "Current physics checks are energy/resource/storage checks, not detailed plant validation."
+  ]
+}

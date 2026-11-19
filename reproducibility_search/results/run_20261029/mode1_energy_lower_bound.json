@@ -1,0 +1,10 @@
+{
+  "applicable": true,
+  "generation_MWh_e_equivalent": 117576.48518436373,
+  "load_MWh": 101306.89644221628,
+  "maximum_net_storage_MWh_e_equivalent": 760.0,
+  "minimum_possible_waste_MWh_e_equivalent": 15509.588742147447,
+  "minimum_possible_EWP": 0.1319106343230784,
+  "assumptions": "Current inputs and generation equations; constant reactor; lossless TES; no H2; available-energy EWP denominator. Not a claim about alternative paper definitions.",
+  "paper_Mode1_EWP": 0.0402
+}

@@ -1,0 +1,92 @@
+{
+  "matched_entries": 9,
+  "entries_within_5_percent": 0,
+  "entries_within_10_percent": 0,
+  "matched_rows": 3,
+  "rows_with_all_three_within_10_percent": 0,
+  "not_all_ten_Table5_rows": true,
+  "relative_error_formula": "100 * (teacher / paper - 1)",
+  "targets_checked_directly_against_original_pdf_page_12": true,
+  "figure_comparisons": [
+    {
+      "mode": 1,
+      "row": "1a",
+      "paper_figure": 8,
+      "paper_page": 12,
+      "paper_cache_page_text_matches_original_pdf": true,
+      "paper_image": "Paper_Fig8_Mode1.png",
+      "paper_image_sha256": "9c42d688e13826431aa80525c09bc5afa7d2c617d5c49cf7b554aa246614ff00",
+      "teacher_native_image": "Figure2_Mode1_Results.png",
+      "teacher_native_sha256": "1eae6b3dd51002f61ae2721db1f0ffd8d6de4a8893c3636f1864e4ff6b5a64a3",
+      "teacher_panel_pixels_preserved": true,
+      "comparison_image": "Paper_vs_Teacher_Mode1.png",
+      "comparison_image_size": [
+        2940,
+        1135
+      ],
+      "comparison_image_sha256": "cb43a6372ee967ab3a8c91d38bf82de4e9db1c6224bcf8084e46914791b5dda0"
+    },
+    {
+      "mode": 2,
+      "row": "2a",
+      "paper_figure": 9,
+      "paper_page": 13,
+      "paper_cache_page_text_matches_original_pdf": true,
+      "paper_image": "Paper_Fig9_Mode2.png",
+      "paper_image_sha256": "b5d2eec967f7762add89c9f175853de6ba5fe8962cb72222fd7abbe01982d143",
+      "teacher_native_image": "Figure3_Mode2_Results.png",
+      "teacher_native_sha256": "df243a9a9a6cfc7e820395f4c84a0b67014bb85d7ad8778b15e36d9fff0cee1a",
+      "teacher_panel_pixels_preserved": true,
+      "comparison_image": "Paper_vs_Teacher_Mode2.png",
+      "comparison_image_size": [
+        2940,
+        1535
+      ],
+      "comparison_image_sha256": "79fbf6aaa3a49496879a65efe7144c91c2b31a860cbe87b68dcd2b5220fb4209"
+    },
+    {
+      "mode": 3,
+      "row": "3d",
+      "paper_figure": 10,
+      "paper_page": 14,
+      "paper_cache_page_text_matches_original_pdf": true,
+      "paper_image": "Paper_Fig10_Mode3.png",
+      "paper_image_sha256": "b0171bd145b3258727f5812a418057be1280e4b73f1937aae785b43910f48d27",
+      "teacher_native_image": "Figure4_Mode3_Results.png",
+      "teacher_native_sha256": "88b942a52aab3d81e23abb5be45e9b5295c4a5a8797549d4c09eb321d1c19bff",
+      "teacher_panel_pixels_preserved": true,
+      "comparison_image": "Paper_vs_Teacher_Mode3.png",
+      "comparison_image_size": [
+        2940,
+        1541
+      ],
+      "comparison_image_sha256": "989f81e5a724fc31988820e638ad5524fa747215d0de2a553a59555477777ebb"
+    }
+  ],
+  "teacher_diagnostics": {
+    "1": {
+      "midyear_LF_min_4350_to_4550": 0.9698301842360595,
+      "last_H2_hour": null,
+      "RE_exceeds_load_hours": 504,
+      "H2_tonnes": 0.0,
+      "total_WER_MWhe": 414.4651776623735
+    },
+    "2": {
+      "midyear_LF_min_4350_to_4550": 0.9701909970987633,
+      "last_H2_hour": 8745,
+      "RE_exceeds_load_hours": 1856,
+      "H2_tonnes": 438.98800916166965,
+      "total_WER_MWhe": 291.2554863244192
+    },
+    "3": {
+      "midyear_LF_min_4350_to_4550": 0.7615046119169256,
+      "last_H2_hour": 6993,
+      "RE_exceeds_load_hours": 1585,
+      "H2_tonnes": 414.9223412450145,
+      "total_WER_MWhe": 1288.3329108582057
+    }
+  },
+  "author_hourly_curve_error": "Not calculated: original hourly author arrays unavailable.",
+  "original_teacher_plot_scales_preserved": true,
+  "unit_note": "Paper axes show MW_e / MW_th; teacher shows MWh_e / MWh_th per 1h. Numerically equal at delta_t=1h. No thermal-to-electric rescaling of figures."
+}

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# raw runs, too large for git (frozen copies are tracked)
+reproducibility_search/results/paper_first_unchanged_v1/
+reproducibility_search/results/strict_compromise_20261029/
+reproducibility_search/results/table5_dual_comparison_v1/
+reproducibility_search/results/table5_paper_digitized_v1/
+reproducibility_search/results/teacher_only_20261111/

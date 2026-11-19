@@ -1,0 +1,33 @@
+{
+  "physics": {
+    "charge_mwth": 25.0,
+    "discharge_mwth": 10.0,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap"
+  },
+  "economics": {
+    "real_rate": 0.08,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement"
+  },
+  "selection": {
+    "case_id": "P019_E013",
+    "physical_id": "P019",
+    "economic_id": "E013",
+    "charge_mwth": 25.0,
+    "discharge_mwth": 10.0,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap",
+    "real_rate": 0.08,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "valid": true,
+    "metric_score": 181.4813382628244,
+    "numerical_targets_pass": false,
+    "approximate_plot_features_pass": false,
+    "qualitative_plot_checks_pass": false,
+    "accepted_baseline": false
+  }
+}

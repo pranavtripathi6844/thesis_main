@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1a",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "max_H2_resource_violation": 0.0,
+    "finite": true,
+    "nonnegative": true,
+    "storage_bounds": true,
+    "design_bounds": true,
+    "electric_residual": 1.7763568394002505e-15,
+    "thermal_residual": 0.0,
+    "TES_residual": 1.1368683772161603e-13,
+    "BS_residual": 0.0,
+    "total_residual": 4.973799150320701e-14
+  },
+  {
+    "id": "2a",
+    "valid": true,
+    "max_balance_residual_MWh": 1.1368683772161603e-13,
+    "max_H2_resource_violation": 8.881784197001252e-16,
+    "finite": true,
+    "nonnegative": true,
+    "storage_bounds": true,
+    "design_bounds": true,
+    "electric_residual": 3.552713678800501e-15,
+    "thermal_residual": 0.0,
+    "TES_residual": 1.1368683772161603e-13,
+    "BS_residual": 0.0,
+    "total_residual": 4.973799150320701e-14
+  },
+  {
+    "id": "3d",
+    "valid": true,
+    "max_balance_residual_MWh": 1.4210854715202004e-14,
+    "max_H2_resource_violation": 8.881784197001252e-16,
+    "finite": true,
+    "nonnegative": true,
+    "storage_bounds": true,
+    "design_bounds": true,
+    "electric_residual": 3.552713678800501e-15,
+    "thermal_residual": 0.0,
+    "TES_residual": 1.4210854715202004e-14,
+    "BS_residual": 0.0,
+    "total_residual": 1.0658141036401503e-14
+  }
+]

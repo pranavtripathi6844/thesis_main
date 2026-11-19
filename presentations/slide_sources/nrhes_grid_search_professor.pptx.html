@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NRHES: grid search and paper reproduction</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #172b40; }
+  .slide { padding: 24px 44px; background: #ffffff; position: relative; overflow: hidden; }
+  .eyebrow { color: #087e83; text-transform: uppercase; letter-spacing: 1.6px; font-weight: 700; font-size: 12px; line-height: 15px; margin-bottom: 6px; }
+  h1 { font-size: 34px; line-height: 1.12; margin: 0; letter-spacing: -0.7px; }
+  .sub { font-size: 18px; line-height: 1.35; margin: 7px 0 12px; color: #526478; }
+  .muted { color: #526478; }
+  .teal { color: #087e83; }
+  .bad { color: #a53e35; }
+  .good { color: #08705d; }
+  .footer { position: absolute; left: 44px; right: 44px; bottom: 14px; display: flex; justify-content: space-between; gap: 18px; color: #64758a; font-size: 11px; line-height: 15px; border-top: 1px solid #dce5eb; padding-top: 8px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { background: #f1f6f8; border: 1px solid #dce6eb; border-radius: 10px; padding: 16px; }
+  .card h2 { font-size: 21px; margin: 0 0 10px; line-height: 1.2; }
+  .banner { padding: 12px 16px; border-radius: 8px; background: #e8f5f3; color: #17584e; font-size: 18px; line-height: 1.35; }
+  .warning { background: #fff1df; color: #724708; }
+  table { width: 100%; border-collapse: collapse; font-size: 17px; line-height: 1.2; }
+  th { text-align: left; background: #18364c; color: white; padding: 9px 10px; font-size: 14px; font-weight: 600; }
+  td { padding: 7px 10px; border-bottom: 1px solid #dce5eb; vertical-align: middle; }
+  tbody tr:nth-child(even) { background: #f4f7f9; }
+  .selected td { background: #e8f5f3; font-weight: 700; }
+  .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .note { font-size: 14px; line-height: 1.35; color: #526478; }
+  .speaker-notes { display: none; }
+  .title-slide { background: #102b42; color: white; }
+  .title-slide .eyebrow { color: #7ddcd3; margin-top: 12px; }
+  .title-slide h1 { font-size: 47px; line-height: 1.1; margin-top: 18px; max-width: 830px; }
+  .title-slide .sub { color: #c7d9e6; font-size: 21px; margin: 18px 0 24px; }
+  .title-slide .card { background: #1c3c54; border: 1px solid #38586d; color: white; padding: 17px 20px; }
+  .kpi { font-size: 39px; font-weight: 700; line-height: 1.1; }
+  .kpi-label { font-size: 17px; line-height: 1.3; margin-top: 7px; }
+  .title-slide .banner { margin-top: 21px; background: #f4c369; color: #203446; font-size: 20px; font-weight: 700; }
+  .title-slide .footer { color: #c1d2df; border-color: #38586d; }
+  .settings { font-size: 16px; }
+  .settings td { padding: 7px 9px; }
+  .settings th { font-size: 14px; }
+  .mode-strip { margin-top: 12px; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  .mode { padding: 9px 11px; border-left: 3px solid #087e83; background: #f1f6f8; font-size: 16px; line-height: 1.3; }
+  .designs { font-size: 16px; line-height: 1.1; }
+  .designs td { padding: 3px 10px; }
+  .designs th { padding: 7px 10px; font-size: 13px; }
+  .designs .group td { border-top: 2px solid #a9c1cc; }
+  .fixed-strip { font-size: 15px; color: #17584e; background: #e8f5f3; padding: 8px 12px; border-radius: 6px; margin-bottom: 11px; }
+  .count-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 0 0 12px; }
+  .count { background: #18364c; color: white; border-radius: 7px; padding: 8px 12px; font-size: 15px; line-height: 1.25; }
+  .count strong { font-size: 23px; margin-right: 5px; }
+  .axis-card { padding: 13px 16px; }
+  .axis-card h2 { font-size: 19px; margin-bottom: 7px; }
+  .axis { font-size: 16px; }
+  .axis td { border: 0; padding: 3px 0; line-height: 1.2; }
+  .axis tr { background: transparent; }
+  .axis td:first-child { width: 105px; font-weight: 700; padding-right: 9px; }
+  .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .step { border: 1px solid #dce5eb; background: #f1f6f8; border-radius: 9px; padding: 13px 15px; }
+  .step h2 { font-size: 20px; margin: 0 0 8px; }
+  .step p { font-size: 17px; line-height: 1.3; margin: 0; }
+  .formula { font-size: 19px; background: #18364c; color: white; padding: 12px 16px; margin: 13px 0; border-radius: 7px; }
+  .example { font-size: 18px; }
+  .example td { padding: 9px 10px; }
+  .result-table { font-size: 20px; }
+  .result-table th { font-size: 14px; }
+  .result-table td { padding: 10px 10px; }
+  .metric-card { padding: 10px 14px; }
+  .metric-card .kpi { font-size: 29px; }
+  .metric-card h2 { font-size: 18px; margin: 0 0 6px; }
+  .metric-card p { font-size: 14px; line-height: 1.25; margin: 6px 0 0; }
+  .fail-card { background: #fcf0ed; border-color: #eed7d1; }
+  .pass-card { background: #e8f5f3; border-color: #c5e0d8; }
+  .bar-row { display: grid; grid-template-columns: 88px 1fr 43px; align-items: center; gap: 8px; font-size: 14px; margin-top: 12px; }
+  .bar-track { height: 17px; border-radius: 3px; background: #dce5eb; overflow: hidden; }
+  .bar { height: 100%; background: #087e83; }
+  .ask { padding-left: 20px; margin: 5px 0 0; font-size: 18px; line-height: 1.33; }
+  .ask li { margin-bottom: 13px; }
+</style>
+</head>
+<body>
+
+<section class="slide title-slide">
+  <div class="eyebrow">Thesis progress review · nuclear–renewable hybrid energy system</div>
+  <h1>Grid search for a faithful<br>paper reproduction</h1>
+  <p class="sub">Nie et al. (2025), Table 5<br>Cost, supply reliability and energy utilization</p>
+  <div class="grid3">
+    <div class="card"><div class="kpi">10</div><div class="kpi-label">published designs<br>across three operating modes</div></div>
+    <div class="card"><div class="kpi">30</div><div class="kpi-label">individual targets<br>DPSP · EWP · LCOE</div></div>
+    <div class="card"><div class="kpi">2,557</div><div class="kpi-label">complete configurations<br>in the independent staged grid</div></div>
+  </div>
+  <div class="banner">LCOE matches within 5%. Full Table 5 reproduction is not yet achieved.</div>
+  <div class="footer"><span>Unchanged Excel values · no RL · no capacity re-optimization</span><span>9 November 2026 · 1 / 7</span></div>
+  <aside class="speaker-notes">
+    The goal is to reproduce the paper's published system performance before moving to reinforcement learning. The three targets are deficiency of power supply probability, energy waste possibility, and levelized cost of energy. Ten designs give thirty target values. The completed independent run contains 2,557 complete settings. These are benchmark-fitting results, not held-out validation or a successful paper replication. The simulation results were completed on 31 October 2026; this presentation is prepared on 9 November 2026.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">01 · Approaches and implementation settings</div>
+  <h1>Three comparison runs, two implementations</h1>
+  <p class="sub">Teacher baseline; independent model at reference and grid-selected settings.</p>
+  <table class="settings" id="settings-table">
+    <thead><tr><th style="width:24%">Common setting</th><th style="width:25%">Teacher, as supplied</th><th style="width:25%">Independent reference</th><th style="width:26%">Grid-selected G01734</th></tr></thead>
+    <tbody>
+      <tr><td>TES charge / discharge</td><td>10 / 10 MWth</td><td>25 / 25 MWth</td><td>25 / 10 MWth</td></tr>
+      <tr><td>PV output convention</td><td>Area / efficiency</td><td>Area / efficiency</td><td>150 W normalization</td></tr>
+      <tr><td>When H2 cannot run</td><td>Retain demand split</td><td>Retain demand split</td><td>Renewables first</td></tr>
+      <tr><td>Real rate / horizon</td><td>3.92% / 20 years</td><td>3.92% / 20 years</td><td>8% / 40 years</td></tr>
+      <tr><td>LCOE energy denominator</td><td>Served demand</td><td>Served demand</td><td>Requested demand</td></tr>
+      <tr><td>Separate plant costs</td><td>Not added separately</td><td>Embedded in reactor cost</td><td>Rated sizing proxy</td></tr>
+    </tbody>
+  </table>
+  <div class="mode-strip">
+    <div class="mode"><strong>Mode 1</strong><br>Electricity + TES; no hydrogen</div>
+    <div class="mode"><strong>Mode 2</strong><br>Demand split + eligible H2</div>
+    <div class="mode"><strong>Mode 3</strong><br>Mode 2 only above TES threshold</div>
+  </div>
+  <p class="note" style="margin:11px 0 0">All three comparisons use 25 MWth and 40% conversion. Selected assumptions are not verified author settings.</p>
+  <div class="footer"><span>Earlier adjusted/digitized-input trials are excluded under the unchanged-input restriction.</span><span>2 / 7</span></div>
+  <aside class="speaker-notes">
+    Three comparison runs use two code implementations: the teacher file and the independent paper-first code. Do not confuse these with the three operating modes. The teacher implementation is preserved and executed as supplied. The independent reference counts rejected charging heat, recalculates shortage after actual discharge limits, enforces hydrogen resources, and sizes hydrogen storage by the maximum daily mass. The grid-selected candidate changes shared assumptions in that same independent model, not the published row capacities. The 40-year horizon and balance-of-plant sizing proxy are unverified; the proxy may double-count reactor capital costs. Mode 3 uses the published threshold at the start of the hour. Historical experiments included unchanged-input, adjusted-input, and digitized-input studies. The earlier unchanged-input result had 281.09% RMS error; the adjusted-input 45.66% and digitized-input 71.02% results are not eligible under the current restriction.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">02 · Fixed inputs and row-specific capacities</div>
+  <h1>Ten published designs, not ten fitted models</h1>
+  <p class="sub">Same 8,760-hour Excel sequence: irradiance, ambient temperature, wind and demand.</p>
+  <div class="fixed-strip">Fixed: 1 wind turbine · 40% conversion · TES initial/minimum 5% · lossless TES · published unit prices</div>
+  <table class="designs" id="design-table">
+    <thead><tr><th>Row</th><th>PV panels</th><th>TES (MWhth)</th><th>SOEC (MWe)</th><th>DF</th><th>TES threshold</th></tr></thead>
+    <tbody>
+      <tr><td>1a</td><td>60,423</td><td>2,000</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>1b</td><td>60,493</td><td>2,000</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>1c</td><td>61,422</td><td>1,716</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr class="group"><td>2a</td><td>80,000</td><td>2,000</td><td>9.0870</td><td>0.5843</td><td>—</td></tr>
+      <tr><td>2b</td><td>80,000</td><td>2,000</td><td>8.3216</td><td>0.5898</td><td>—</td></tr>
+      <tr><td>2c</td><td>68,419</td><td>2,000</td><td>6.1948</td><td>0.6290</td><td>—</td></tr>
+      <tr class="group"><td>3a</td><td>71,497</td><td>2,000</td><td>10.7266</td><td>0.2717</td><td>0.8158</td></tr>
+      <tr><td>3b</td><td>73,376</td><td>987</td><td>12.1438</td><td>0.2736</td><td>0.6363</td></tr>
+      <tr><td>3c</td><td>75,366</td><td>583</td><td>10.6583</td><td>0.2744</td><td>0.3413</td></tr>
+      <tr><td>3d</td><td>75,054</td><td>250</td><td>9.5445</td><td>0.3245</td><td>0.8048</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin:10px 0 0">Weather varies hourly, but is unchanged across runs. Pressure and geometric volume are not model inputs.<br>Exact equivalence between the supplied Excel and the authors’ hourly data is not verified.</p>
+  <div class="footer"><span>Source: Nie et al. (2025), Table 5, p.12; Appendix A2. Row letters are our identifiers.</span><span>3 / 7</span></div>
+  <aside class="speaker-notes">
+    The paper has three Mode 1 rows, three Mode 2 rows and four Mode 3 rows, not eleven rows. The additional Mode 3d solution also satisfies a cost cap of approximately 0.0940 dollars per kWh. We copy each design exactly, including its PV count, TES capacity, SOEC rating, demand factor and TES threshold. DF is the demand allocation fraction; the threshold is a fraction of stored heat, not an efficiency. Each row starts independently at 5% of its own TES capacity. The Excel weather and load records are fixed arrays, not constant values over the year. Ambient temperature affects PV output; pressure and tank geometry are not explicit inputs to this reduced model. Historical data are sufficient, but identical author data have not been established.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">03 · Grid-search implementation</div>
+  <h1>A staged search of shared assumptions</h1>
+  <p class="sub">Published designs stay fixed; one hypothesis applies to all ten rows.</p>
+  <div class="count-strip">
+    <div class="count"><strong>1,600</strong><br>physical settings</div>
+    <div class="count"><strong>+ 956</strong><br>new finance settings</div>
+    <div class="count"><strong>+ 1</strong><br>invalid H2 diagnostic</div>
+    <div class="count" style="background:#087e83"><strong>= 2,557</strong><br>complete configurations</div>
+  </div>
+  <div class="grid2">
+    <div class="card axis-card">
+      <h2>Stage A · exhaust the physical grid</h2>
+      <table class="axis"><tbody>
+        <tr><td>Charge</td><td>5, 10, 15, 25, 50 MWth</td></tr>
+        <tr><td>Discharge</td><td>5, 7.5, 10, 15, 25 MWth</td></tr>
+        <tr><td>TES rating</td><td>4 absolute / capacity-scaled variants</td></tr>
+        <tr><td>PV model</td><td>Area equation / 150 W normalization</td></tr>
+        <tr><td>Reactor</td><td>25 / 50 MWth interpretations</td></tr>
+        <tr><td>H2-off rule</td><td>Retain split / renewables first</td></tr>
+        <tr><td>TES switch</td><td>Start state / extra end-state guard</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card axis-card">
+      <h2>Stage B · 240 finance options each</h2>
+      <table class="axis"><tbody>
+        <tr><td>Real rate</td><td>3.92, 6, 8, 10, 12%</td></tr>
+        <tr><td>Horizon</td><td>20, 30, 40 years</td></tr>
+        <tr><td>Variable cost</td><td>Thermal / electrical basis</td></tr>
+        <tr><td>LCOE load</td><td>Served / requested demand</td></tr>
+        <tr><td>Plant costs</td><td>Embedded / separate rated proxy</td></tr>
+        <tr><td>Decommission</td><td>Retirement / project-end accounting</td></tr>
+      </tbody></table>
+      <p class="note" style="margin:11px 0 0">Top 4 distinct annual-summary signatures:<br>4 × (240 − 1 already saved) = 956 new cases.</p>
+    </div>
+  </div>
+  <p class="note" style="margin:10px 0 0">Not all 384,000 physical × finance pairs. All ten rows enter fitting; no held-out validation claim.</p>
+  <div class="footer"><span>Configuration: paper_reproduction_config.json · Additive H2 diagnostic fails resource checks and is never selected.</span><span>4 / 7</span></div>
+  <aside class="speaker-notes">
+    The code enumerates the physical grid using Cartesian products. Five charge rates times five discharge rates times four rating interpretations times two PV conventions times two reactor ratings times two inactive-SOEC policies times two switching interpretations gives 1,600 physical settings. Every physical case runs all ten designs and is audited. Rank physical agreement using the worst DPSP/EWP relative error plus 0.1 times RMS relative error. Retain four distinct annual-summary signatures, not full-hourly trajectory hashes. For those, evaluate 240 financial combinations, reusing physical results because finance does not change dispatch. Four default finance combinations were already saved, giving 956 additional configurations. The additive hydrogen equation is one separate resource-invalid diagnostic. This staged search is not an exhaustive search of all 384,000 physical-financial pairs.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">04 · Forward simulation and acceptance</div>
+  <h1>Each candidate is tested against all 30 cells</h1>
+  <p class="sub">We calculate annual performance from hourly physics; we do not force the target outputs.</p>
+  <div class="steps">
+    <div class="step"><h2>1 · Simulate each hour</h2><p>Weather + published design<br>→ generation, dispatch, TES, H2</p></div>
+    <div class="step"><h2>2 · Aggregate the year</h2><p>DPSP: unmet demand<br>EWP: waste · LCOE: net cost</p></div>
+    <div class="step"><h2>3 · Compare + audit</h2><p>Repeat for 10 designs<br>Check balances and 30 errors</p></div>
+  </div>
+  <div class="formula">Relative error = | model − paper | / paper × 100% &nbsp; · &nbsp; Every target must pass.</div>
+  <table class="example" id="example-table">
+    <thead><tr><th>Example: row 1a</th><th>Paper</th><th>Selected model</th><th>Signed relative error</th></tr></thead>
+    <tbody>
+      <tr><td>DPSP (%)</td><td class="num">0.9700</td><td class="num">0.050676</td><td class="bad num">−94.78% · fails</td></tr>
+      <tr><td>EWP (%)</td><td class="num">4.0200</td><td class="num">9.073150</td><td class="bad num">+125.70% · fails</td></tr>
+      <tr><td>LCOE (USD/kWh)</td><td class="num">0.094012</td><td class="num">0.096083</td><td class="good num">+2.20% · passes 5%</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin:13px 0 0">A row passes only if all 3 metrics pass. The table passes only if all 30 pass, not just their average.</p>
+  <div class="footer"><span>DPSP/EWP table entries above are percentages; the comparison tolerance is a relative error.</span><span>5 / 7</span></div>
+  <aside class="speaker-notes">
+    The authors optimize equipment sizes to find solutions. Our current task instead evaluates their published solutions with an independently implemented forward model. The target values are never substituted into PV, TES or hydrogen equations. Reset TES, run all 8,760 records and compute annual unmet energy, waste and net cost. A 5% reproduction tolerance is relative to each published number, not five percentage points. Row 1a illustrates why a good LCOE does not establish reproduction. A lower DPSP would mean better reliability within the simulated model, but still fails numerical reproduction when the paper reports more unmet demand. Energy conservation is necessary, but does not identify the authors' exact model or hourly data.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">05 · Verified results</div>
+  <h1>LCOE matches; reliability and waste do not</h1>
+  <p class="sub">Same 30 published targets and unchanged Excel data for all three comparison runs.</p>
+  <table class="result-table" id="results-table">
+    <thead><tr><th>Comparison run</th><th>RMS relative error</th><th>Worst relative error</th><th>Rows within 10%</th></tr></thead>
+    <tbody>
+      <tr><td>Teacher, as coded</td><td class="num">297.79%</td><td class="num">1019.79%</td><td class="num">0 / 10</td></tr>
+      <tr><td>Independent reference</td><td class="num">297.17%</td><td class="num">1085.15%</td><td class="num">0 / 10</td></tr>
+      <tr class="selected"><td>Selected grid: G01734</td><td class="num">226.70%</td><td class="num">842.70%</td><td class="num">0 / 10</td></tr>
+    </tbody>
+  </table>
+  <div class="grid3" style="margin-top:15px">
+    <div class="card metric-card fail-card"><h2>DPSP · reliability</h2><div class="kpi bad">0 / 10</div><p>targets within 5%<br>Metric RMS error: 89.68%</p></div>
+    <div class="card metric-card fail-card"><h2>EWP · energy waste</h2><div class="kpi bad">0 / 10</div><p>targets within 5%<br>Metric RMS error: 382.28%</p></div>
+    <div class="card metric-card pass-card"><h2>LCOE · electricity cost</h2><div class="kpi good">10 / 10</div><p>targets within 5%<br>Metric RMS error: 1.97%</p></div>
+  </div>
+  <div class="banner" style="margin-top:13px;font-size:17px">Joint RMS fell 23.87% versus the teacher, and 19.35% versus the prior unchanged-input result (281.09%).</div>
+  <div class="footer"><span>No all-30 passing case. Selection minimizes worst error + 0.1 × RMS; it is not pure RMS minimization.</span><span>6 / 7</span></div>
+  <aside class="speaker-notes">
+    All errors are relative and use the same thirty targets. Teacher joint RMS is 297.7938%; the independent reference is 297.1660%; the selected model is 226.7037%. The maximum selected error is row 3a EWP at 842.7035%. All ten LCOEs are within 5%, with maximum absolute LCOE error 2.286%, but no DPSP or EWP is within even 10%. Reliability agreement is worse than the teacher: DPSP RMS rises from 41.82% to 89.68%. Therefore the 23.87% joint improvement does not mean every metric improved. The previous eligible unchanged-input run had 281.09% RMS, so the new numerical reduction is 19.35%. The old 45.66% adjusted-input result is not a valid comparator under the current input restriction. No successful reproduction or out-of-sample prediction is claimed.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">06 · Interpretation and discussion</div>
+  <h1>Validated code; reproduction remains unresolved</h1>
+  <p class="sub">The remaining gap is about inputs and model identification, not just writing another optimizer.</p>
+  <div class="grid2">
+    <div class="card" style="min-height:268px">
+      <h2>Conditional energy-balance check</h2>
+      <p class="note" style="margin:0 0 10px">Mode 1a EWP (%), scale 0–10. The bound is not a simulated result.</p>
+      <div class="bar-row"><span>Paper</span><div class="bar-track"><div class="bar" style="width:40.2%"></div></div><strong>4.02</strong></div>
+      <div class="bar-row"><span>10% ceiling</span><div class="bar-track"><div class="bar" style="width:44.22%;background:#78909c"></div></div><strong>4.42</strong></div>
+      <div class="bar-row"><span>Lower bound</span><div class="bar-track"><div class="bar" style="width:84.3226%;background:#b77b26"></div></div><strong>8.43</strong></div>
+      <p class="note" style="margin:13px 0 0">Excel unchanged; 25 MWth; 150 W PV; lossless TES.<br>No finance or TES power setting removes this surplus.</p>
+      <p style="font-size:14px;color:#17584e;margin:12px 0 0"><strong>64 tests · 16,000 physical audits · exact frozen rerun</strong></p>
+    </div>
+    <div class="card" style="min-height:268px">
+      <h2>Questions for the professor</h2>
+      <ol class="ask">
+        <li>Can we verify the exact author weather/load records and hourly alignment?</li>
+        <li>Which reactor/PV interpretation and TES power limits should be authoritative?</li>
+        <li>Can we confirm H2 rules and economic conventions before any RL stage?</li>
+      </ol>
+    </div>
+  </div>
+  <div class="banner warning" style="margin-top:12px;font-size:15px">
+    <strong>2024 cross-check:</strong> its 20 MWe reactor exceeds the Excel peak load of 15 MW, giving DPSP = 0.<br>
+    Physical benchmarks are Tables 7–9. Its Table 5 algorithm statistics are reference-only, not reproduced.
+  </div>
+  <div class="footer"><span>Sources: Nie (2025), pp.7–12, A2–A3; Nie (2024); frozen run and artifact validation, 31 Oct 2026.</span><span>7 / 7</span></div>
+  <aside class="speaker-notes">
+    With constant reactor production, no hydrogen in Mode 1, the supplied inputs and lossless TES, annual generation minus demand minus the maximum additional stored heat implies an optimistic EWP lower bound. For row 1a it is 8.4323% with the 150 W interpretation, compared with the published 4.02% and the 10% relative-error upper limit of 4.422%. The area-based PV interpretation makes the bound higher. This is conditional evidence of input/model incompatibility, not proof that the paper is wrong. Other unresolved choices include main-text 25 versus appendix 50 MWth and area-based 189.44 W versus appendix 150 W PV. The teacher code also clips charging before waste accounting and can calculate shortage before applying actual discharge limits; the independent model fixes these and audits resources. Its largest checked hourly residual is about 2.24e-13 in the respective energy units. Eighty hourly NPZs and an exact frozen rerun were verified. The 2024 battery/TES model is a separate cross-check: its constant 20 MWe exceeds every demand in the supplied Excel, so positive paper DPSP cannot be reproduced without a different input/model interpretation. No 2024 optimization-algorithm replication was performed. Request clarification rather than silently changing inputs or starting RL.
+  </aside>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+[TES charge limit (overflow update)] x1
+--- original
+    P_max  = p['TES']['P_max']
+--- replacement
+    P_max  = p['TES'].get('P_max_ch', p['TES']['P_max'])
+
+
+[TES charge/discharge limits (storage update)] x1
+--- original
+    P_TES_ch  = max(0.0, min(P_TES_ch,  P_max))
+    P_TES_dis = max(0.0, min(P_TES_dis, P_max))
+--- replacement
+    P_TES_ch  = max(0.0, min(P_TES_ch,  p['TES'].get('P_max_ch', P_max)))
+    P_TES_dis = max(0.0, min(P_TES_dis, p['TES'].get('P_max_dis', P_max)))
+
+
+[TES discharge limit (dispatch)] x4
+--- original
+P_dis = min(P_dis, p['TES']['P_max'])--- replacement
+P_dis = min(P_dis, p['TES'].get('P_max_dis', p['TES']['P_max']))
+
+[PV interpretation (150 W nameplate scaling)] x1
+--- original
+    P_pv = max(0.0, eta * N_pv * p['PV']['A'] * G_Tot / 1e6)  # MW
+--- replacement
+    P_pv = max(0.0, eta * N_pv * p['PV']['A'] * G_Tot / 1e6) * p['PV'].get('output_scale', 1.0)  # MW
+
+
+[Hydrogen formula: minimum (original) or addition (Eq. 9)] x1
+--- original
+            H2_kg_hour = min(H2_from_e, H2_from_th)
+
+            P_e_used  = H2_kg_hour / p['HTSE']['K_e']
+            P_th_used = H2_kg_hour / p['HTSE']['K_th']
+--- replacement
+            if p['HTSE'].get('formula', 'minimum') == 'addition':
+                H2_kg_hour = H2_from_e + H2_from_th
+                P_e_used, P_th_used = P_e_htse, P_th_htse
+            else:
+                H2_kg_hour = min(H2_from_e, H2_from_th)
+
+                P_e_used  = H2_kg_hour / p['HTSE']['K_e']
+                P_th_used = H2_kg_hour / p['HTSE']['K_th']
+
+
+[Allocation when the SOEC cannot run] x1
+--- original
+        else:
+            WER = P_RE_surplus * dt
+            Q, LF, WEN = TES_update_with_waste(Q, P_nuc_surplus_th, C, dt, p)
+--- replacement
+        elif p['HTSE'].get('inactive_soec', 'keep_split') == 'renewables_first':
+            return Mode1(P_RE, P_nuc, P_grid, Q, C, p)
+        else:
+            WER = P_RE_surplus * dt
+            Q, LF, WEN = TES_update_with_waste(Q, P_nuc_surplus_th, C, dt, p)
+
+
+[Mode 3 TES-factor check (start of hour or end-state guard)] x1
+--- original
+        return Mode2(P_RE, P_nuc, P_grid, Q, C, P_SOEC, P_RE_max, DF, p)
+--- replacement
+        out = Mode2(P_RE, P_nuc, P_grid, Q, C, P_SOEC, P_RE_max, DF, p)
+        if p['HTSE'].get('soc_switch', 'start') == 'post_guard' and out[5] < TES_factor * C - 1e-10:
+            return Mode1(P_RE, P_nuc, P_grid, Q, C, p)
+        return out
+
+
+[Reactor variable-cost basis] x1
+--- original
+    VOM = p['smTMSR']['P_th'] * p['hours_per_year'] * p['econ']['smTMSR_VOM']
+    FC  = p['smTMSR']['P_th'] * p['hours_per_year'] * p['econ']['smTMSR_fuel']
+--- replacement
+    VOM = p['econ'].get('variable_MW', p['smTMSR']['P_th']) * p['hours_per_year'] * p['econ']['smTMSR_VOM']
+    FC  = p['econ'].get('variable_MW', p['smTMSR']['P_th']) * p['hours_per_year'] * p['econ']['smTMSR_fuel']
+
+
+[Decommissioning timing] x1
+--- original
+    if p['econ']['smTMSR_lifetime'] <= project_lifetime:
+--- replacement
+    if p['econ'].get('decommissioning', 'retirement') == 'project':
+        PW_decom = present_worth(capacity_kWe * p['econ']['smTMSR_decom'],
+                                 i, project_lifetime)
+    elif p['econ']['smTMSR_lifetime'] <= project_lifetime:
+
+
+[Balance-of-plant proxy (same proxy as our model, teacher NPC conventions)] x1
+--- original
+    return PV_NPC + WT_NPC + TES_NPC + HTSE_NPC + H2_tank_NPC + smTMSR_NPC
+--- replacement
+    total = PV_NPC + WT_NPC + TES_NPC + HTSE_NPC + H2_tank_NPC + smTMSR_NPC
+    if p['econ'].get('balance_of_plant', 'embedded') == 'separate_rated_proxy':
+        e_kW = p['smTMSR']['P_e'] * 1000.0
+        th_kW = p['smTMSR']['P_th'] * 1000.0
+        project = p['econ']['project_lifetime']
+        total += (2.0 * calculate_component_NPC(e_kW * 149.0, e_kW * 2.98, i, 20, project)
+                  + calculate_component_NPC(th_kW * 45.0, th_kW * 0.9, i, 20, project)
+                  + calculate_component_with_replacement(PV_kW * 700.0, PV_kW * 7.0,
+                                                         PV_kW * 600.0, 10, i, project))
+    return total
+
+
+[LCOE energy denominator] x1
+--- original
+    E_load = (total_grid - total_DPS) * 1000.0  # kWh/year
+--- replacement
+    E_load = (total_grid - (total_DPS if p['econ'].get('load_basis', 'served') == 'served'
+                            else 0.0)) * 1000.0  # kWh/year

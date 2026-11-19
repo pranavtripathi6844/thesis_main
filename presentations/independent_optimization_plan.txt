@@ -1,0 +1,236 @@
+PLAN: INDEPENDENT MULTI-OBJECTIVE OPTIMIZATION OF THE THREE BEST MODELS
+Status: planning only. Nothing has been implemented. Implementation starts after the
+current work has been pushed, unchanged, to the GitHub repository.
+Date: 2026-11-19
+
+
+1. WHAT THE PROFESSORS ARE ASKING FOR
+
+So far we did the following: we took the paper's optimal designs (Table 5: PV number, TES
+capacity, SOEC power, DF, TES factor), kept them fixed, and searched over model settings
+(TES limits, PV model, discount rate, LCOE basis and so on) until the model's DPSP, EWP and
+LCOE came close to the paper's values. That shows the model can reproduce the paper's
+numbers at the paper's designs. It does not show that the model would have found those
+designs.
+
+Now they want the reverse:
+  - Keep each of the three best models fixed (model settings frozen).
+  - Let a multi-objective optimizer choose the decision variables itself.
+  - Check whether the optimizer arrives at (or near) the paper's optimal solutions.
+
+If an independent optimization of our model lands near the paper's Table 5 solutions and
+shows the same hourly behaviour as Figs. 8-10, then the model is good enough to use as the
+environment for reinforcement learning.
+
+The three models (Approach 2, per mode, from results/best_per_mode_final_20261111):
+  Mode 1 model: TM-P0521-F157
+    TES charge/discharge 10/15 MWth absolute, PV 150 W nameplate, reactor 25 MWth,
+    keep_split, start; real rate 10%, 20 years, electric variable cost basis,
+    requested load, BOP embedded, retirement decommissioning.
+  Mode 2 model: TM-P0523-F158
+    TES 10/15 MWth absolute, PV 150 W, 25 MWth, renewables_first;
+    10%, 20 years, electric, requested load, BOP embedded, project decommissioning.
+  Mode 3 model: TM-P0441-F115
+    TES 10/7.5 MWth both_scaled (scaled by TES capacity / 2000), PV 150 W, 25 MWth,
+    keep_split, start; 8%, 30 years, thermal, served load, separate BOP proxy,
+    retirement decommissioning.
+Each model is optimized only in its own mode (Mode 1 model in Mode 1, and so on).
+Excel inputs stay unchanged; the teacher's files stay unchanged (hash-checked).
+
+
+2. WHAT FIGS. 8, 9 AND 10 ARE IN THE PAPER (2025 paper, NED 440, 114138)
+
+All three are hourly time series over one year (0 to 8760 h) of one specific optimal
+solution: the solution in Table 5 with the lowest EWP among Pareto solutions with DPSP < 1%.
+
+  Fig. 8 (Mode 1, Table 5 row: PV 60,423, TES 2000 MWh_th):
+    panels: LF of TES, DPS, WEN. (No hydrogen and no WER, because Mode 1 has no SOEC
+    and renewable power is always below demand.)
+  Fig. 9 (Mode 2, PV 80,000, TES 2000, SOEC 9.0870 MWe, DF 0.5843):
+    panels: produced hydrogen, LF of TES, DPS, WEN, WER.
+  Fig. 10 (Mode 3, PV 75,054, TES 250, SOEC 9.5445, DF 0.3245, TES factor 0.8048):
+    same five panels. This is the lowest-EWP Mode 3 solution with the extra conditions
+    DPSP < 1% and LCOE < 0.0940 (the Mode 1 LCOE), i.e. the last row of Table 5.
+
+In the teacher's script these correspond to his plotting outputs Figure2_Mode1,
+Figure3_Mode2 and Figure4_Mode3, which we have already been comparing with the paper.
+
+Qualitative features the paper's text (Section 3.2.2) states, to use as a checklist:
+  Mode 1 (Fig. 8)
+    - TES LF shows seasonal behaviour on top of daily cycling.
+    - Energy accumulates in TES before about 1500 h and is consumed after about 7000 h.
+    - TES empties frequently after about 7800 h, so DPS appears in that period.
+    - WEN occurs when TES is full, concentrated in about 1400-4000 h and 4900-7000 h.
+    - No WER.
+    - LF minimum around 4450 h is about 0.71.
+  Mode 2 (Fig. 9)
+    - Seasonal TES behaviour, similar to Mode 1.
+    - LF drops to about 0.88 at about 4450 h (higher than 0.71 in Mode 1).
+    - In 7800-8760 h hydrogen production continues, TES drains, DPS appears.
+    - WEN clearly lower than in Mode 1.
+    - WER appears when the renewable power sent to the SOEC is below its operating power.
+  Mode 3 (Fig. 10)
+    - Hydrogen production is shut down most of the time after about 7500 h.
+    - LF drops to about 0.088 at about 4450 h (small 250 MWh TES).
+    - DPS concentrated in 7500-8760 h.
+    - WEN clearly lower than in Modes 1 and 2.
+Known gaps of our models (already seen in the grid-search plots): Mode 2 model gives
+WER = 0 (paper shows WER), and no model reproduces the Mode 3 LF dip near 4450 h.
+These should be reported again after the optimization, not hidden.
+
+Other parts of the paper that the comparison should use:
+  - Table 2: decision variable bounds.
+  - Table A4: algorithm settings.
+  - Fig. 6: hypervolume convergence over iterations (20 independent runs).
+  - Fig. 7: 3-D Pareto fronts (DPSP, EWP, LCOE) per mode, WT number = 1.
+  - Table 3: CRITIC weights. Table 4: CRITIC-TOPSIS compromise solutions.
+  - Table 5: lowest-EWP solutions with DPSP < 1% (the main reference).
+
+
+3. THE OPTIMIZATION PROBLEM, AS THE PAPER DEFINES IT
+
+Objectives (all minimized, all three modes): DPSP, EWP, LCOE.
+WT number fixed at 1 (the paper treats WT number as a scenario, not a variable).
+
+Decision variables and bounds (Table 2):
+  PV number      40,000 to 80,000 (integer)          Modes 1, 2, 3
+  TES capacity   250 to 2000 MWh_th                   Modes 1, 2, 3
+  SOEC power     0.01 x P_max_renewable to P_max_renewable (MWe)   Modes 2, 3
+  Demand factor  0.2 to 1                             Modes 2, 3
+  TES factor     0.2 to 1                             Mode 3 only
+So Mode 1 has 2 variables, Mode 2 has 4, Mode 3 has 5.
+
+P_max_renewable depends on the PV number (it is the peak of PV + wind output), so the SOEC
+bound moves with PV. Plan: optimize a fraction s in [0.01, 1] and set
+SOEC = s x P_max_renewable(PV). This keeps the bound exact without constraint handling.
+
+Hydrogen tank size is not a variable: it is set from the maximum daily hydrogen mass, as in
+the paper and the teacher's script.
+
+DPSP < 1% is not a constraint during the optimization in the paper. It is a filter applied
+afterwards to the Pareto set. We do the same.
+
+Algorithm settings from Table A4:
+  MOPSO: population 500, 100 iterations, inertia weight 0.4, c1 = 1, c2 = 2.
+  (NSGA-II / NSGA-III: population 500, 100 iterations, crossover 0.6, SBX index 20,
+   1 mutated variable expected, polynomial mutation index 20.)
+The paper ran everything in PlatEMO (MATLAB) and chose MOPSO.
+
+
+4. HOW WE WOULD DO IT
+
+Step 0. Push the current work to GitHub unchanged (you will send the link). All new work
+        goes into a new folder (e.g. reproducibility_search/independent_optimization/) and
+        new results folders. Existing files and results are not modified.
+
+Step 1. Evaluation function per model.
+        A function f(model, mode, x) -> (DPSP, EWP, LCOE) that runs the patched teacher
+        engine with the frozen model settings and the decision vector x.
+        Check before anything else: at the paper's Table 5 designs, f must return exactly
+        the values already stored in best_per_mode_final_20261111 (bit-for-bit). Also check
+        the teacher files' SHA-256 before and after.
+
+Step 2. Measure the cost of one evaluation.
+        One optimizer run = 500 x 100 = 50,000 simulations per mode. The paper repeated
+        each algorithm 20 times. We time one simulation from a fresh process and multiply.
+        If it is too slow, two options:
+          a) Parallelize over the 11 cores (each particle is independent).
+          b) Write a fast (numba) copy of the hourly dispatch, accepted only if it matches
+             the patched teacher engine to within 1e-12 on a few hundred random designs and
+             exactly at the Table 5 designs.
+        Decide the number of repeated runs (target 20 as in the paper, minimum 5) from the
+        measured time.
+
+Step 3. Optimizer.
+        Main: MOPSO with the Table A4 settings, following Coello and Lechuga (2002) as
+        implemented in PlatEMO (external repository of non-dominated solutions, grid-based
+        leader selection, mutation, archive size = 500). pymoo (already installed) has no
+        MOPSO, so this would be our own implementation, tested on standard benchmark
+        problems (e.g. ZDT/DTLZ) against known fronts before being used on the NRHES.
+        Cross-check: NSGA-II and NSGA-III from pymoo with the Table A4 settings. If the
+        different algorithms give the same front, the result does not depend on the
+        algorithm.
+        PV number rounded to integer; fixed random seeds; every run logged.
+
+Step 4. Convergence.
+        Hypervolume per iteration, mean and standard deviation over the repeated runs
+        (our version of Fig. 6). The fronts of all runs merged into one final Pareto set
+        per mode.
+
+Step 5. Select solutions exactly the way the paper did.
+        a) Table 5 analogue: from our Pareto set, solutions with DPSP < 1%, sorted by EWP;
+           report the lowest-EWP one and the next two (the paper lists three per mode).
+        b) Mode 3 extra row: lowest EWP with DPSP < 1% and LCOE < 0.0940. Also report it
+           with the threshold set to our own Mode 1 lowest-EWP LCOE, since the paper's
+           rule refers to Mode 1.
+        c) Table 3/4 analogue: CRITIC weights from our Pareto set, then TOPSIS compromise
+           solution (method from Nie et al. 2024, the 2024 paper).
+        d) Fig. 7 analogue: 3-D Pareto front plus the DPSP-EWP and DPSP-LCOE projections.
+
+Step 6. Compare with the paper "in everything".
+        i) Objective values: our Table 5 / Table 4 rows against the paper's, as relative
+           error and as percentage-point difference (both, since the error definition is
+           still open).
+        ii) Decision variables: our values against Table 5, as relative difference and as a
+           fraction of the Table 2 range (a 2,000-panel difference is 5% of the range).
+           Also report whether variables sit on bounds as in the paper (Mode 1 TES = 2000,
+           Mode 2 PV = 80,000 and TES = 2000).
+        iii) Also place the paper's Table 5 design on our Pareto front: is it dominated by
+           our solutions, and by how much? This tells whether a difference in variables
+           comes from the model or from the optimizer.
+        iv) Time behaviour: run the selected solution through the teacher's plotting
+           function and put it next to Figs. 8, 9, 10 (hydrogen, LF, DPS, WEN, WER). Score
+           the checklist in section 2 with simple measured quantities: hour and value of
+           the LF minimum near 4450 h, share of DPS in 7500/7800-8760 h, WEN in 1400-4000 h
+           and 4900-7000 h, share of hours with hydrogen off after 7500 h, total WER,
+           hydrogen per year.
+
+Step 7. Report and slides.
+        One table per mode (objectives, variables, paper values, differences), Pareto
+        plots, convergence plot, side-by-side time series, list of matches and mismatches,
+        and a clear answer: does the independent optimum agree with the paper closely
+        enough to move on to reinforcement learning.
+
+
+5. THINGS TO BE AWARE OF
+
+- Circularity: the three models were chosen because they match the paper at the paper's
+  designs. That makes it more likely, not certain, that the optimizer finds the same
+  designs. If it finds different designs, that is an important result, not a failure of
+  the procedure.
+- The three models have different financial settings (10% / 20 y, 10% / 20 y, 8% / 30 y),
+  so LCOE across modes is not compared like-for-like. The professors asked per model, so
+  this is fine, but it should be stated. In particular, the Mode 3 condition
+  LCOE < 0.0940 mixes the Mode 3 model with the paper's Mode 1 LCOE.
+- Mode 3 TES limits scale with TES capacity (TES/2000) in the Mode 3 model. That rule
+  carries over to any TES value the optimizer picks, but it is an assumption of that model
+  and the optimizer will exploit it. Modes 1 and 2 use absolute limits.
+- Table 5 solutions sit on or near the DPSP = 1% filter. Small model differences can move
+  a solution across 1%, which changes which solution is "lowest EWP". Report how sensitive
+  the selected solution is to the 1% threshold (e.g. 0.9% and 1.1%).
+- Mode 1 Pareto fronts with 2 variables are small; Mode 3 with 5 variables needs the full
+  budget. Expect Mode 3 to be the hardest and slowest.
+- Disk is about 93% full (about 34 GB free). Store only archives, fronts and the time
+  series of the selected solutions, not every simulation.
+
+
+6. OPEN QUESTIONS (FOR YOU OR THE PROFESSORS)
+
+  1. Error definition: relative (%) or percentage points. We would report both.
+  2. MOPSO only (as in the paper), or MOPSO plus NSGA-II/III cross-check (recommended).
+  3. Number of repeated runs: 20 as in the paper if the runtime allows, otherwise fewer.
+  4. Mode 3 LCOE threshold: the paper's 0.0940, our Mode 1 value, or both (recommended).
+  5. Whether to also run the same optimization on the teacher's original model as a
+     baseline, to show how much the chosen settings change the optimum.
+
+
+7. ORDER OF WORK AFTER THE GITHUB PUSH
+
+  1. Evaluation function and exactness check at Table 5 designs.
+  2. Timing; decide parallel or numba copy; decide number of runs.
+  3. MOPSO implementation and benchmark test; NSGA-II/III setup.
+  4. Short trial run (e.g. population 50, 10 iterations) for each mode.
+  5. Full runs for Modes 1, 2, 3.
+  6. Selection (Table 5, Table 4, Fig. 7 analogues).
+  7. Comparisons and time-series plots against Figs. 8-10.
+  8. Report and slides for the professors.

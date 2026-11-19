@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NRHES reproduction: approach, results, takeaway</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #172b40; }
+  .slide { padding: 26px 44px; background: #ffffff; position: relative; overflow: hidden; }
+  .eyebrow { color: #087e83; text-transform: uppercase; letter-spacing: 1.6px; font-weight: 700; font-size: 12px; line-height: 15px; margin-bottom: 6px; }
+  h1 { font-size: 32px; line-height: 1.12; margin: 0; letter-spacing: -0.6px; }
+  .sub { font-size: 17px; line-height: 1.35; margin: 7px 0 16px; color: #526478; }
+  .good { color: #08705d; font-weight: 700; }
+  .bad { color: #a53e35; font-weight: 700; }
+  .footer { position: absolute; left: 44px; right: 44px; bottom: 12px; display: flex; justify-content: space-between; color: #64758a; font-size: 11px; line-height: 14px; border-top: 1px solid #dce5eb; padding-top: 7px; }
+  .speaker-notes { display: none; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .step { background: #f1f6f8; border: 1px solid #dce6eb; border-radius: 10px; padding: 14px 14px 12px; }
+  .step .n { width: 28px; height: 28px; border-radius: 14px; background: #18364c; color: #fff; font-weight: 700; font-size: 15px; line-height: 28px; text-align: center; margin-bottom: 9px; }
+  .step h2 { font-size: 18px; margin: 0 0 8px; line-height: 1.2; }
+  .step ul { margin: 0; padding-left: 16px; font-size: 15px; line-height: 1.35; }
+  .step li { margin-bottom: 5px; }
+  .strip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .box { border-left: 4px solid #087e83; background: #e8f5f3; padding: 10px 14px; font-size: 15px; line-height: 1.4; color: #17584e; }
+  .box.grey { border-color: #8aa0b0; background: #f4f7f9; color: #3d5266; }
+  .box b { color: #12394f; }
+
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th { background: #18364c; color: #fff; font-size: 13px; font-weight: 600; padding: 8px 10px; text-align: left; line-height: 1.2; }
+  td { padding: 7px 10px; border-bottom: 1px solid #dce5eb; font-size: 15px; line-height: 1.2; }
+  th.r, td.r { text-align: right; }
+  th.c, td.c { text-align: center; }
+  tbody tr:nth-child(even) { background: #f4f7f9; }
+  tr.best td { background: #e8f5f3; font-weight: 700; }
+  .err { font-size: 12px; color: #64758a; font-weight: 400; }
+  td.pass { color: #08705d; font-weight: 700; }
+  td.fail { color: #a53e35; }
+  tr.grp td { border-top: 2px solid #a9c1cc; }
+
+  .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .compact td { padding: 6px 10px; }
+  .pt { background: #f1f6f8; border: 1px solid #dce6eb; border-radius: 9px; padding: 10px 13px; font-size: 15px; line-height: 1.35; }
+  .pt b { display: block; font-size: 16px; margin-bottom: 4px; }
+
+  .tk { display: grid; grid-template-columns: 300px 1fr; border-bottom: 1px solid #dce5eb; }
+  .tk:first-of-type { border-top: 1px solid #dce5eb; }
+  .tk .claim { font-size: 16.5px; font-weight: 700; line-height: 1.3; padding: 9px 14px 9px 0; display: flex; gap: 10px; }
+  .tk .claim .n { flex: none; width: 24px; height: 24px; border-radius: 12px; background: #087e83; color: #fff; font-size: 13px; line-height: 24px; text-align: center; }
+  .tk .why { font-size: 14.5px; line-height: 1.38; padding: 9px 0; color: #34495c; }
+  .tk .why b { color: #172b40; }
+  .whyhead { display: grid; grid-template-columns: 300px 1fr; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: #64758a; font-weight: 700; margin-bottom: 4px; }
+  .banner { margin-top: 10px; background: #18364c; color: #fff; border-radius: 8px; padding: 9px 14px; font-size: 15.5px; line-height: 1.35; }
+  .banner .next { color: #9fdcd5; }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="eyebrow">Approach</div>
+  <h1>How we tested the reproduction</h1>
+  <p class="sub">Target: paper Table 5, designs 1a, 2a and 3d (one per mode). Metrics: DPSP, EWP, LCOE.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h2>Baseline</h2>
+      <ul><li>Ran the teacher script unchanged</li><li>Reference point for every later run</li></ul></div>
+    <div class="step"><div class="n">2</div><h2>Two models</h2>
+      <ul><li><b>Teacher script</b>, minimal logged edits</li><li><b>Our model</b>, written from the paper, energy balance checked</li></ul></div>
+    <div class="step"><div class="n">3</div><h2>Two H2 formulas</h2>
+      <ul><li><b>Minimum</b>: paper text and teacher code</li><li><b>Addition</b>: paper Eq. 9</li></ul></div>
+    <div class="step"><div class="n">4</div><h2>Grid search</h2>
+      <ul><li>13 settings the paper leaves unclear</li><li>1,600 physical × 240 financial</li><li>4 runs × 384,000 combinations</li></ul></div>
+  </div>
+  <div class="strip">
+    <div class="box"><b>Scoring.</b> Worst relative error + 0.1 × RMS error over the 9 targets. One setting must serve all 3 designs. Pass = within 10% of the paper.</div>
+    <div class="box grey"><b>Kept fixed.</b> Excel hourly data and order, PV / WT / TES / SOEC capacities, DF, TES factor, efficiencies and unit prices.</div>
+  </div>
+  <div class="footer"><span>Nie et al. (2025), Table 5 · unchanged Excel values · no RL</span><span>1 / 4</span></div>
+  <aside class="speaker-notes">We first ran the teacher script without changes as the baseline. We then compared two implementations: the teacher script with small, logged edits so each setting can be switched, and our own model built from the paper with energy-balance checks. The paper states the hydrogen formula two ways, so we tested both. Finally we searched every combination of 13 settings the paper does not pin down: 1,600 physical and 240 financial, which is 384,000 combinations per run and four runs. Financial settings only change LCOE, so each physical setting is simulated once per design. One setting has to serve all three designs, and a target passes if it is within 10% of the paper.</aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Results · overview</div>
+  <h1>Grid search narrows the gap but does not close it</h1>
+  <p class="sub">Best combination from each run, compared with the 9 paper targets (3 designs × 3 metrics).</p>
+  <table class="compact">
+    <thead><tr><th style="width:30%">Approach</th><th style="width:16%">H2 formula</th><th class="r" style="width:16%">Worst error</th><th class="c" style="width:19%">Targets within 10%</th><th class="c" style="width:19%">Designs fully within 10%</th></tr></thead>
+    <tbody>
+      <tr><td>Teacher script, original settings</td><td>Minimum</td><td class="r">297%</td><td class="c">0 / 9</td><td class="c">0 / 3</td></tr>
+      <tr><td>Teacher script, original settings</td><td>Addition</td><td class="r">571%</td><td class="c">0 / 9</td><td class="c">0 / 3</td></tr>
+      <tr class="best grp"><td>Teacher script, best grid</td><td>Minimum</td><td class="r">91%</td><td class="c">4 / 9</td><td class="c">0 / 3</td></tr>
+      <tr><td>Teacher script, best grid</td><td>Addition</td><td class="r">108%</td><td class="c">0 / 9</td><td class="c">0 / 3</td></tr>
+      <tr class="grp"><td>Our model, best grid</td><td>Minimum</td><td class="r">242%</td><td class="c">3 / 9</td><td class="c">0 / 3</td></tr>
+      <tr><td>Our model, best grid</td><td>Addition</td><td class="r">242%</td><td class="c">3 / 9</td><td class="c">0 / 3</td></tr>
+    </tbody>
+  </table>
+  <div class="points">
+    <div class="pt"><b>Closest: teacher + minimum</b>Worst error 297% → 91%. 4 of 9 targets pass.</div>
+    <div class="pt"><b>Our model matches LCOE only</b>All 3 LCOE values pass. EWP is 86–242% too high.</div>
+    <div class="pt"><b>No full reproduction</b>No run gets all 3 metrics within 10% for any design.</div>
+  </div>
+  <div class="footer"><span>Error = |model − paper| / paper · 1,536,000 combinations in total</span><span>2 / 4</span></div>
+  <aside class="speaker-notes">At the professor's settings the teacher script misses every target, with a worst error of 297%. The grid search brings the teacher script down to a worst error of 91%, with four of nine targets inside 10%. Our model only matches the three LCOE values. The addition formula does not help either model. No combination reproduces all three metrics for any single design.</aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Results · by metric (minimum formula)</div>
+  <h1>LCOE matches, EWP partly, DPSP never</h1>
+  <p class="sub">Values with relative error versus the paper. <span class="good">Green</span> = within 10%.</p>
+  <table>
+    <thead><tr><th style="width:16%">Metric</th><th style="width:8%">Design</th><th class="r" style="width:11%">Paper</th><th class="r" style="width:21%">Teacher, original</th><th class="r" style="width:22%">Teacher script, best grid</th><th class="r" style="width:22%">Our model, best grid</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td><b>DPSP (%)</b></td><td>1a</td><td class="r">0.97</td><td class="r fail">0.56 <span class="err">−43%</span></td><td class="r fail">0.38 <span class="err">−61%</span></td><td class="r fail">0.05 <span class="err">−95%</span></td></tr>
+      <tr><td></td><td>2a</td><td class="r">0.90</td><td class="r fail">0.40 <span class="err">−56%</span></td><td class="r fail">0.08 <span class="err">−91%</span></td><td class="r fail">0.10 <span class="err">−88%</span></td></tr>
+      <tr><td></td><td>3d</td><td class="r">0.90</td><td class="r fail">1.12 <span class="err">+24%</span></td><td class="r fail">0.79 <span class="err">−12%</span></td><td class="r fail">0.19 <span class="err">−79%</span></td></tr>
+      <tr class="grp"><td><b>EWP (%)</b></td><td>1a</td><td class="r">4.02</td><td class="r fail">4.63 <span class="err">+15%</span></td><td class="r pass">3.94 <span class="err">−2%</span></td><td class="r fail">9.07 <span class="err">+126%</span></td></tr>
+      <tr><td></td><td>2a</td><td class="r">3.80</td><td class="r fail">4.66 <span class="err">+23%</span></td><td class="r fail">4.58 <span class="err">+20%</span></td><td class="r fail">7.06 <span class="err">+86%</span></td></tr>
+      <tr><td></td><td>3d</td><td class="r">0.62</td><td class="r fail">2.46 <span class="err">+297%</span></td><td class="r fail">0.69 <span class="err">+11%</span></td><td class="r fail">2.12 <span class="err">+242%</span></td></tr>
+      <tr class="grp"><td style="white-space:nowrap"><b>LCOE ($/kWh)</b></td><td>1a</td><td class="r">0.0940</td><td class="r fail">0.0687 <span class="err">−27%</span></td><td class="r pass">0.0937 <span class="err">−0.4%</span></td><td class="r pass">0.0961 <span class="err">+2.3%</span></td></tr>
+      <tr><td></td><td>2a</td><td class="r">0.1162</td><td class="r fail">0.0833 <span class="err">−28%</span></td><td class="r pass">0.1163 <span class="err">+0.1%</span></td><td class="r pass">0.1189 <span class="err">+2.3%</span></td></tr>
+      <tr><td></td><td>3d</td><td class="r">0.0931</td><td class="r fail">0.0653 <span class="err">−30%</span></td><td class="r pass">0.0942 <span class="err">+1.2%</span></td><td class="r pass">0.0913 <span class="err">−2.0%</span></td></tr>
+    </tbody>
+  </table>
+  <div class="footer"><span>Best grid IDs: teacher script TM-P0441-F056 · our model OM-P1099-F131</span><span>3 / 4</span></div>
+  <aside class="speaker-notes">LCOE is matched within about 2% by both best runs. EWP is matched only for design 1a by the teacher script, and 3d is close at 11%. DPSP never passes: every best run has fewer supply deficits than the paper. Fitting EWP and LCOE moved DPSP further from the paper in Modes 1 and 2 than the teacher's original settings.</aside>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">Takeaway</div>
+  <h1>What we learned, and why</h1>
+  <div class="whyhead" style="margin-top:14px"><span>Takeaway</span><span>Reasoning</span></div>
+  <div class="tk"><div class="claim"><span class="n">1</span>The gap is not a tuning problem</div>
+    <div class="why">1.5 million combinations give at best <b>4 of 9 targets</b> and <b>no full design</b>. The best settings also differ between the two models, so no single "true" setting emerges.</div></div>
+  <div class="tk"><div class="claim"><span class="n">2</span>DPSP is the blocker</div>
+    <div class="why">Every best run has <b>too few deficits</b> (0.05–0.79% vs 0.90–0.97%). With the Excel data, daytime surplus refills storage every day. No physical setting recreates the paper's Mode 1 dip near hour 4450 (paper load factor <b>0.71</b>, lowest found <b>0.88</b>).</div></div>
+  <div class="tk"><div class="claim"><span class="n">3</span>LCOE gap points to a missing cost</div>
+    <div class="why">Teacher LCOE is <b>27–30% low in all three designs</b>, a uniform shift. It closes only when a separate balance-of-plant cost is added, which is an unverified proxy.</div></div>
+  <div class="tk"><div class="claim"><span class="n">4</span>The paper most likely uses the minimum H2 formula</div>
+    <div class="why">Addition removes all deficits in the teacher script and leaves DPSP and EWP unchanged in our model. Paper text and teacher code both use minimum.</div></div>
+  <div class="banner"><b>Conclusion:</b> the remaining gap most likely comes from input data or model details not stated in the paper.<br><span class="next"><b>Next:</b> confirm the error definition with the professor and request the authors' hourly data and dispatch rules.</span></div>
+  <div class="footer"><span>In percentage points, the best teacher-script run is within 0.82 pp on every DPSP and EWP value.</span><span>4 / 4</span></div>
+  <aside class="speaker-notes">First, more tuning will not close the gap: after 1.5 million combinations the best result passes four of nine targets and no complete design, and the two models prefer different settings. Second, DPSP is the main blocker. Our runs always have fewer deficits than the paper because, with the Excel data, the daytime surplus refills storage every day. None of the 1,600 physical settings reproduces the load-factor dip the paper shows near hour 4450. Third, the teacher LCOE is low by a nearly constant 27 to 30 percent across all designs, which points to a missing cost block rather than a dispatch difference. Fourth, the addition formula makes things worse, which supports the minimum formula used in the paper text and the teacher code. Note that errors here are relative. Measured in percentage points, the best teacher-script run is within 0.82 points on every DPSP and EWP value, so the error definition matters for how we judge success.</aside>
+</section>
+
+</body>
+</html>

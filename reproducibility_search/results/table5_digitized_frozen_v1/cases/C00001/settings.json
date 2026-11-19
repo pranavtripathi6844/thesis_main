@@ -1,0 +1,14 @@
+{
+  "track": "paper_digitized",
+  "pv_interpretation": "area_efficiency",
+  "charge_model": "absolute",
+  "discharge_model": "absolute",
+  "weather_shift_hours": 0,
+  "solar_exponent": 1.0,
+  "load_offset_mw": 0.0,
+  "load_seasonal_gain": 1.0,
+  "charge_reference_mwth": 25.0,
+  "discharge_reference_mwth": 25.0,
+  "real_rate": 0.1,
+  "figure5_input_sha256": "ef7453754120cb0eed2a2c72a5372cf0ad8b32be28182f9adff64c4585c4db19"
+}

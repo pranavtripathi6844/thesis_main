@@ -1,0 +1,358 @@
+{
+  "status": "not_within_requested_margin",
+  "settings": {
+    "charge_reference_mwth": 99.82971828318513,
+    "discharge_reference_mwth": 35.60472708035346,
+    "real_rate": 0.08769573143964698,
+    "solar_exponent": 1.0,
+    "load_offset_mw": 0.0,
+    "load_seasonal_gain": 1.0,
+    "track": "fixed_inputs",
+    "pv_interpretation": "nameplate_150W",
+    "charge_model": "capacity_scaled",
+    "discharge_model": "capacity_scaled",
+    "weather_shift_hours": 0
+  },
+  "summary": {
+    "all_worst_relative_percent": 1014.1469159089297,
+    "all_rms_relative_percent": 281.0899918069096,
+    "all_within_5_percent": false,
+    "all_metrics_within_5_percent": 7,
+    "all_rows_within_5_percent": 0,
+    "all_within_10_percent": false,
+    "all_metrics_within_10_percent": 10,
+    "all_rows_within_10_percent": 0,
+    "fit_worst_relative_percent": 1014.1469159089297,
+    "fit_rms_relative_percent": 323.34871841713243,
+    "fit_within_5_percent": false,
+    "fit_metrics_within_5_percent": 5,
+    "fit_rows_within_5_percent": 0,
+    "fit_within_10_percent": false,
+    "fit_metrics_within_10_percent": 7,
+    "fit_rows_within_10_percent": 0,
+    "reserved_worst_relative_percent": 357.14843744885474,
+    "reserved_rms_relative_percent": 139.32585190369537,
+    "reserved_within_5_percent": false,
+    "reserved_metrics_within_5_percent": 2,
+    "reserved_rows_within_5_percent": 0,
+    "reserved_within_10_percent": false,
+    "reserved_metrics_within_10_percent": 3,
+    "reserved_rows_within_10_percent": 0,
+    "design_valid": true
+  },
+  "spec": {
+    "description": "2025 Nie Table 5, all ten rows. Input-calibrated scenarios are not recovered author data.",
+    "reference": "Nuclear Engineering and Design 440 (2025) 114138, Table 5, page 12",
+    "reserved_rows": [
+      "1b",
+      "2b",
+      "3c"
+    ],
+    "acceptance_relative_percent": [
+      5,
+      10
+    ],
+    "seed": 507,
+    "project_years": 20,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "bounds": {
+      "charge_absolute": [
+        2,
+        25
+      ],
+      "discharge_absolute": [
+        2,
+        25
+      ],
+      "charge_capacity_scaled": [
+        2,
+        100
+      ],
+      "discharge_capacity_scaled": [
+        2,
+        100
+      ],
+      "real_rate": [
+        0.02,
+        0.12
+      ],
+      "solar_exponent": [
+        1,
+        4.5
+      ],
+      "load_offset_mw": [
+        -0.5,
+        0.5
+      ],
+      "load_seasonal_gain": [
+        0.75,
+        1.25
+      ]
+    },
+    "search": {
+      "fixed_inputs": {
+        "coarse_power": 4,
+        "refine_branches": 2,
+        "generations": 20,
+        "popsize": 5
+      },
+      "input_calibrated": {
+        "coarse_power": 5,
+        "refine_branches": 3,
+        "generations": 20,
+        "popsize": 5
+      }
+    },
+    "provenance": {
+      "capacities_and_targets": "Exact Table 5 entries; DPSP/EWP are fractions, not percentage points.",
+      "reserved_rows": "Not used in the current fitting objective. Previously inspected in earlier experiments, so not pristine external validation.",
+      "TES_power": "Numerical TES power limits are unspecified in Eqs. 19/20. Test absolute MWth and capacity-scaled limits. Scaled values specify MWth at 2000 MWhth and multiply by C_TES/2000.",
+      "PV_interpretation": "Area/efficiency versus 150 W nameplate normalization, an unresolved specification conflict.",
+      "finance": "Real rate and project horizon are not verified author settings. Keep 20 years and thermal variable-cost units for comparability; fit a shared real rate in the stated bounds. No claim of exhaustive financial search.",
+      "solar_exponent": "Analyst-defined peak-preserving irradiance scenario: G'=G_peak*(G/G_peak)^gamma. Preserves night and maximum, changes annual irradiation. Not a published component model or recovered meteorology.",
+      "load_adjustments": "Analyst-defined scenario: add one common load offset and adjust the zero-mean 31-day smoothed seasonal component. No independent per-mode or per-row series.",
+      "weather_shift": "0 or +8 hours, applied together to irradiance, temperature and wind using cyclic year boundaries. UTC/local mismatch is a hypothesis based on the hourly profiles, not verified metadata.",
+      "published_parameters": "Keep 25 MWth reactor, 40% conversion, initial/minimum 5% TES, zero standing losses, unit TES efficiencies, hydrogen minimum-resource formula, component prices and all Table 5 design/control values unchanged.",
+      "scope": "No RL, malfunctions, component-efficiency tuning, or independently fitted mode-specific assumptions."
+    },
+    "benchmarks": [
+      {
+        "id": "1a",
+        "mode": 1,
+        "capacity": {
+          "N_pv": 60423,
+          "N_wt": 1,
+          "C_TES": 2000
+        },
+        "target": {
+          "DPSP": 0.0097,
+          "EWP": 0.0402,
+          "LCOE": 0.094012
+        }
+      },
+      {
+        "id": "1b",
+        "mode": 1,
+        "capacity": {
+          "N_pv": 60493,
+          "N_wt": 1,
+          "C_TES": 2000
+        },
+        "target": {
+          "DPSP": 0.0096,
+          "EWP": 0.0403,
+          "LCOE": 0.094027
+        }
+      },
+      {
+        "id": "1c",
+        "mode": 1,
+        "capacity": {
+          "N_pv": 61422,
+          "N_wt": 1,
+          "C_TES": 1716
+        },
+        "target": {
+          "DPSP": 0.0099,
+          "EWP": 0.0431,
+          "LCOE": 0.0908
+        }
+      },
+      {
+        "id": "2a",
+        "mode": 2,
+        "capacity": {
+          "N_pv": 80000,
+          "N_wt": 1,
+          "C_TES": 2000,
+          "P_SOEC": 9.087,
+          "DF": 0.5843
+        },
+        "target": {
+          "DPSP": 0.009,
+          "EWP": 0.038,
+          "LCOE": 0.1162
+        }
+      },
+      {
+        "id": "2b",
+        "mode": 2,
+        "capacity": {
+          "N_pv": 80000,
+          "N_wt": 1,
+          "C_TES": 2000,
+          "P_SOEC": 8.3216,
+          "DF": 0.5898
+        },
+        "target": {
+          "DPSP": 0.0086,
+          "EWP": 0.0384,
+          "LCOE": 0.1146
+        }
+      },
+      {
+        "id": "2c",
+        "mode": 2,
+        "capacity": {
+          "N_pv": 68419,
+          "N_wt": 1,
+          "C_TES": 2000,
+          "P_SOEC": 6.1948,
+          "DF": 0.629
+        },
+        "target": {
+          "DPSP": 0.009,
+          "EWP": 0.039,
+          "LCOE": 0.1084
+        }
+      },
+      {
+        "id": "3a",
+        "mode": 3,
+        "capacity": {
+          "N_pv": 71497,
+          "N_wt": 1,
+          "C_TES": 2000,
+          "P_SOEC": 10.7266,
+          "DF": 0.2717,
+          "TES_factor": 0.8158
+        },
+        "target": {
+          "DPSP": 0.0041,
+          "EWP": 0.0018,
+          "LCOE": 0.1164
+        }
+      },
+      {
+        "id": "3b",
+        "mode": 3,
+        "capacity": {
+          "N_pv": 73376,
+          "N_wt": 1,
+          "C_TES": 987,
+          "P_SOEC": 12.1438,
+          "DF": 0.2736,
+          "TES_factor": 0.6363
+        },
+        "target": {
+          "DPSP": 0.007,
+          "EWP": 0.0021,
+          "LCOE": 0.1072
+        }
+      },
+      {
+        "id": "3c",
+        "mode": 3,
+        "capacity": {
+          "N_pv": 75366,
+          "N_wt": 1,
+          "C_TES": 583,
+          "P_SOEC": 10.6583,
+          "DF": 0.2744,
+          "TES_factor": 0.3413
+        },
+        "target": {
+          "DPSP": 0.0095,
+          "EWP": 0.0022,
+          "LCOE": 0.0995
+        }
+      },
+      {
+        "id": "3d",
+        "mode": 3,
+        "capacity": {
+          "N_pv": 75054,
+          "N_wt": 1,
+          "C_TES": 250,
+          "P_SOEC": 9.5445,
+          "DF": 0.3245,
+          "TES_factor": 0.8048
+        },
+        "target": {
+          "DPSP": 0.009,
+          "EWP": 0.0062,
+          "LCOE": 0.0931
+        }
+      }
+    ]
+  },
+  "protected_hashes": {
+    "NRHES_Model.py": "4434541cf463a82b0bb3cf4d3dc6b7315970d08e03205a232fc3c0981fb151a9",
+    "NRHES_Model.m": "945462d21e855beaa4427f1fe8a5d4bc78b378ab21305911401416f765227cf9",
+    "InputData.xlsx": "54c1d34a147db99d2f7a1e8137527571ba35834ae5c2862cc0a48949b3d2f8e3"
+  },
+  "fixed_params": {
+    "smTMSR": {
+      "P_th": 25.0,
+      "eta_PB": 0.4,
+      "P_e": 10.0
+    },
+    "PV": {
+      "P_rated": 150.0,
+      "A": 1.382772,
+      "eta_r": 0.137,
+      "eta_pc": 1.0,
+      "mu": 0.005,
+      "T_ref": 25.0,
+      "NOCT": 47.5
+    },
+    "WT": {
+      "P_rated": 1.5,
+      "z_hub": 70.0,
+      "z_anem": 10.0,
+      "z0": 1.5,
+      "v_ci": 3.0,
+      "v_co": 22.0,
+      "v_r": 13.0
+    },
+    "TES": {
+      "LF_min": 0.05,
+      "LF_max": 1.0,
+      "eta_ch": 1.0,
+      "eta_dis": 1.0,
+      "P_max": 10.0,
+      "sigma": 0.0
+    },
+    "HTSE": {
+      "K_th": 89.68609865470852,
+      "K_e": 28.49002849002849,
+      "P_e_min_ratio": 0.15
+    },
+    "econ": {
+      "PV_inv_cost": 1040.0,
+      "PV_OM_cost": 9.0,
+      "PV_lifetime": 20,
+      "WT_inv_cost": 1695.0,
+      "WT_OM_cost": 51.0,
+      "WT_lifetime": 20,
+      "TES_inv_cost": 12.0,
+      "TES_OM_cost": 0.24,
+      "TES_lifetime": 20,
+      "HTSE_inv_cost": 662.0,
+      "HTSE_OM_fixed": 58.69,
+      "HTSE_lifetime": 5,
+      "H2_tank_inv": 400.0,
+      "H2_tank_OM": 15.0,
+      "H2_tank_lifetime": 20,
+      "smTMSR_OCC": 3000.0,
+      "smTMSR_FOM": 90.26,
+      "smTMSR_VOM": 2.17,
+      "smTMSR_fuel": 0.381,
+      "smTMSR_decom": 621.0,
+      "smTMSR_lifetime": 60,
+      "H2_price": 2.75,
+      "H2_transport": 0.6909,
+      "nominal_discount_rate": 0.06,
+      "inflation_rate": 0.02,
+      "project_lifetime": 20
+    },
+    "dt": 1.0,
+    "hours_per_year": 8760
+  },
+  "implementation_hashes": {
+    "grid_search.py": "3148a5d1746f05556753ca403028e0040f45f5fe26fdc2f2a9ad851e121bbfd4",
+    "table5_calibration.py": "a98f0efac7e7c752fe3ea900d13d0baafa4c044834499d18c6bbaf3d918d2d9f"
+  },
+  "source_inputs": "scenario_inputs.csv is reconstructed/calibrated only if track=input_calibrated; it is not author data."
+}

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "combined_cases": 512,
+  "per_mode_rows": 1536,
+  "grid_shared_plot_files": 128,
+  "png_files_verified": 259,
+  "hourly_files_verified": 96,
+  "all_grid_case_plot_links_exist": true,
+  "optimization_evaluations": 1200,
+  "optimization_front_solutions": 120,
+  "valid_rows_max_energy_residual_MWh": 1.1368683772161605e-13,
+  "original_python_matlab_and_excel_unchanged": true,
+  "search_and_config_hashes_match": true,
+  "two_full_runs_identical_numerical_results": true,
+  "total_run_size_MiB": 97.42965984344482
+}

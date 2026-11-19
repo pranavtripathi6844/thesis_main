@@ -1,0 +1,120 @@
+{
+  "status": "approximate_vector_digitization_not_author_raw_data",
+  "paper_sha256": "9c6122dc9a9b912b705722e1cb9b2cb8e2131514f183a1fece30f7a4ee59fc14",
+  "paper_page": 8,
+  "figure": 5,
+  "method": "Blue vector strokes, composed PDF affine transforms, repeated chunk endpoints removed; ordered nearest-hour assignment; linear interpolation of omitted collinear vertices.",
+  "x_frame_pdf_points": [
+    156.6796,
+    485.645
+  ],
+  "series": {
+    "G_Tot": {
+      "vector_vertices": 6881,
+      "interpolated_missing_hours": 1879,
+      "maximum_hour_assignment_difference": 0.9291682347138703,
+      "min": 0.0,
+      "max": 1140.349907317106,
+      "annual_sum": 1925405.9016278507,
+      "labelled_ticks_pdf_y_and_value": [
+        [
+          326.8806,
+          0
+        ],
+        [
+          340.7654,
+          400
+        ],
+        [
+          354.7185,
+          800
+        ],
+        [
+          368.6033,
+          1200
+        ]
+      ],
+      "maximum_tick_fit_residual": 0.5889332187471155
+    },
+    "T_a": {
+      "vector_vertices": 8560,
+      "interpolated_missing_hours": 200,
+      "maximum_hour_assignment_difference": 0.9371569168069982,
+      "min": -12.183289142381682,
+      "max": 39.10017436416865,
+      "annual_sum": 96089.6531060063,
+      "labelled_ticks_pdf_y_and_value": [
+        [
+          248.7674,
+          -20
+        ],
+        [
+          262.6546,
+          0
+        ],
+        [
+          276.6111,
+          20
+        ],
+        [
+          290.4983,
+          40
+        ]
+      ],
+      "maximum_tick_fit_residual": 0.02987164386479435
+    },
+    "V_anem": {
+      "vector_vertices": 8644,
+      "interpolated_missing_hours": 116,
+      "maximum_hour_assignment_difference": 0.932010478913071,
+      "min": 0.09126572997494975,
+      "max": 9.424652196310497,
+      "annual_sum": 17092.752637808073,
+      "labelled_ticks_pdf_y_and_value": [
+        [
+          174.3792,
+          0
+        ],
+        [
+          189.4358,
+          4
+        ],
+        [
+          204.492,
+          8
+        ]
+      ],
+      "maximum_tick_fit_residual": 3.542236745346372e-05
+    },
+    "P_grid": {
+      "vector_vertices": 8723,
+      "interpolated_missing_hours": 37,
+      "maximum_hour_assignment_difference": 0.9314061600407513,
+      "min": 9.603254517076918,
+      "max": 14.709447531202759,
+      "annual_sum": 103199.11243255848,
+      "labelled_ticks_pdf_y_and_value": [
+        [
+          99.4417,
+          10
+        ],
+        [
+          113.3982,
+          12
+        ],
+        [
+          127.2854,
+          14
+        ]
+      ],
+      "maximum_tick_fit_residual": 0.0033185176254306725
+    }
+  },
+  "limitations": [
+    "PDF coordinates are quantized. Hour assignments are approximate, not recovered timestamps.",
+    "The plot omits some collinear vertices; missing hours are interpolated.",
+    "Axis calibration and source rendering precision introduce ordinate uncertainty.",
+    "No weather/load fitting to Table 5 targets is performed in this extraction.",
+    "Neither author data identity nor exact curve values can be claimed."
+  ]
+}

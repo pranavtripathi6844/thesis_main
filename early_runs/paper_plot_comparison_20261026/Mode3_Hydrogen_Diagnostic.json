@@ -1,0 +1,112 @@
+{
+  "data_hours": 8760,
+  "H2_nan_count": 0,
+  "last_positive_hydrogen_hour": 6993,
+  "all_H2_zero_after_hour": 6993,
+  "last_hour_TES_start_gate_is_open": 6996,
+  "last_hour_end_LF_at_or_above_threshold": 6995,
+  "TES_threshold": 0.8048,
+  "SOEC_min_e_MW": 1.4316749999999998,
+  "code_min_heat_MWth": 3.5791874999999993,
+  "load_ceiling_for_code_thermal_minimum_MW": 12.684418948926721,
+  "late_interval": "7000 through 8760 inclusive",
+  "late_hour_count": 1761,
+  "late_H2_zero_count": 1761,
+  "late_causes_first_applicable_condition": {
+    "TES_below_threshold": 1761
+  },
+  "late_hours_gate_open": 0,
+  "late_min_max_TES_start_LF": [
+    0.05,
+    0.7438383435815947
+  ],
+  "late_min_max_grid_MW": [
+    10.447993121430422,
+    15.0
+  ],
+  "mode2_late_H2_active_hours": 498,
+  "mode2_late_H2_tonnes": 75.03592467920669,
+  "near_last_production": [
+    {
+      "hour": 6992,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.7690694692592185,
+      "TES_end_LF": 0.8090694692592185,
+      "grid_MW": 12.011579894485621,
+      "RE_MW": 10.192853358432034,
+      "reason": "TES_below_threshold"
+    },
+    {
+      "hour": 6993,
+      "H2_kgph": 107.00421357679126,
+      "TES_start_LF": 0.8090694692592185,
+      "TES_end_LF": 0.822739213275127,
+      "grid_MW": 12.073703635613125,
+      "RE_MW": 7.673764726301832,
+      "reason": "hydrogen_produced"
+    },
+    {
+      "hour": 6994,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.822739213275127,
+      "TES_end_LF": 0.8352531454890197,
+      "grid_MW": 12.146696268418207,
+      "RE_MW": 3.3980894898074827,
+      "reason": "no_simultaneous_RE_and_nuclear_surpluses"
+    },
+    {
+      "hour": 7000,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.7026693639923094,
+      "TES_end_LF": 0.6805005721059146,
+      "grid_MW": 12.249181474949301,
+      "RE_MW": 0.032302286309828544,
+      "reason": "TES_below_threshold"
+    },
+    {
+      "hour": 7100,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.4588446312175774,
+      "TES_end_LF": 0.4255042753602867,
+      "grid_MW": 13.418712922682456,
+      "RE_MW": 0.08467733695338682,
+      "reason": "TES_below_threshold"
+    },
+    {
+      "hour": 6996,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.8106811847206045,
+      "TES_end_LF": 0.7840298891886833,
+      "grid_MW": 12.665129553192113,
+      "RE_MW": 0.0,
+      "reason": "no_simultaneous_RE_and_nuclear_surpluses"
+    },
+    {
+      "hour": 6997,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.7840298891886833,
+      "TES_end_LF": 0.7517896377457578,
+      "grid_MW": 13.24667014489474,
+      "RE_MW": 0.022645000602181303,
+      "reason": "TES_below_threshold"
+    },
+    {
+      "hour": 7500,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.40325735716795197,
+      "TES_end_LF": 0.36719176937034337,
+      "grid_MW": 13.60655877976086,
+      "RE_MW": 0.0,
+      "reason": "TES_below_threshold"
+    },
+    {
+      "hour": 8760,
+      "H2_kgph": 0.0,
+      "TES_start_LF": 0.05,
+      "TES_end_LF": 0.05,
+      "grid_MW": 12.44850586417579,
+      "RE_MW": 0.0,
+      "reason": "TES_below_threshold"
+    }
+  ]
+}

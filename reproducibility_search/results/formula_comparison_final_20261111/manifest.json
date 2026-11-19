@@ -1,0 +1,133 @@
+{
+  "completed_utc": "2026-11-10T21:35:58.082695+00:00",
+  "original_hashes": {
+    "NRHES_Model.py": "4434541cf463a82b0bb3cf4d3dc6b7315970d08e03205a232fc3c0981fb151a9",
+    "NRHES_Model.m": "945462d21e855beaa4427f1fe8a5d4bc78b378ab21305911401416f765227cf9",
+    "InputData.xlsx": "54c1d34a147db99d2f7a1e8137527571ba35834ae5c2862cc0a48949b3d2f8e3",
+    "1 - Techno-economic assessment of a smTMSR-based nuclear\u2013renewable.pdf": "9c6122dc9a9b912b705722e1cb9b2cb8e2131514f183a1fece30f7a4ee59fc14",
+    "2 - Multi-objective capacity configuration optimization of a nuclear-renewable hybrid system.pdf": "1434e339bbc9b64a245612106de5249eecbc521fca918326e9f7b0f7335d864e"
+  },
+  "code_hashes": {
+    "runner": "08d93480074d2a9558ae3cb8338f82477ddd82132bdda1db044fd8a35fefaa56",
+    "engines": "8fd779b11bce55dd0726cc2d681d1aa4daf2f2abc79162e23d24b4dd1f872f3d",
+    "model": "d72a90ca22854c5c23adb37288250f1aed91640cfcfb0126e8574f039f063903",
+    "grid_config": "66810cc7dc1457928e5f63b659c76d97be214ad722c610aed9208a5ff7c1a123"
+  },
+  "input_fingerprint": "6f4b920a606011cae8c68448f4b327b6b6265297f05a41c5a0db7cb75950820f",
+  "benchmarks": [
+    "1a",
+    "2a",
+    "3d"
+  ],
+  "configurations_per_engine_formula": 384000,
+  "physically_valid_settings": {
+    "teacher_script/minimum": 1600,
+    "teacher_script/addition": 1600,
+    "our_model/minimum": 1600,
+    "our_model/addition": 1600
+  },
+  "best": {
+    "teacher_script/minimum": {
+      "config_id": "TM-P0441-F056",
+      "objective": 94.64822010566319,
+      "engine": "teacher_script",
+      "hydrogen_formula": "minimum",
+      "physics": {
+        "tes_charge_mwth": 10,
+        "tes_discharge_mwth": 7.5,
+        "tes_rating": "both_scaled",
+        "pv_model": "nameplate_150W",
+        "reactor_2025_mwth": 25,
+        "inactive_soec": "keep_split",
+        "soc_switch": "start"
+      },
+      "finance": {
+        "real_rate": 0.06,
+        "years": 20,
+        "variable_basis": "thermal",
+        "load_basis": "requested",
+        "balance_of_plant": "separate_rated_proxy",
+        "decommissioning": "project"
+      }
+    },
+    "teacher_script/addition": {
+      "config_id": "TA-P0023-F148",
+      "objective": 117.348005040087,
+      "engine": "teacher_script",
+      "hydrogen_formula": "addition",
+      "physics": {
+        "tes_charge_mwth": 5,
+        "tes_discharge_mwth": 5,
+        "tes_rating": "charge_scaled",
+        "pv_model": "area_efficiency",
+        "reactor_2025_mwth": 50,
+        "inactive_soec": "renewables_first",
+        "soc_switch": "start"
+      },
+      "finance": {
+        "real_rate": 0.1,
+        "years": 20,
+        "variable_basis": "thermal",
+        "load_basis": "served",
+        "balance_of_plant": "separate_rated_proxy",
+        "decommissioning": "project"
+      }
+    },
+    "our_model/minimum": {
+      "config_id": "OM-P1099-F131",
+      "objective": 253.16417834016713,
+      "engine": "our_model",
+      "hydrogen_formula": "minimum",
+      "physics": {
+        "tes_charge_mwth": 25,
+        "tes_discharge_mwth": 10,
+        "tes_rating": "absolute",
+        "pv_model": "nameplate_150W",
+        "reactor_2025_mwth": 25,
+        "inactive_soec": "renewables_first",
+        "soc_switch": "start"
+      },
+      "finance": {
+        "real_rate": 0.08,
+        "years": 40,
+        "variable_basis": "thermal",
+        "load_basis": "served",
+        "balance_of_plant": "separate_rated_proxy",
+        "decommissioning": "retirement"
+      }
+    },
+    "our_model/addition": {
+      "config_id": "OA-P1099-F107",
+      "objective": 253.16621462893235,
+      "engine": "our_model",
+      "hydrogen_formula": "addition",
+      "physics": {
+        "tes_charge_mwth": 25,
+        "tes_discharge_mwth": 10,
+        "tes_rating": "absolute",
+        "pv_model": "nameplate_150W",
+        "reactor_2025_mwth": 25,
+        "inactive_soec": "renewables_first",
+        "soc_switch": "start"
+      },
+      "finance": {
+        "real_rate": 0.08,
+        "years": 20,
+        "variable_basis": "electric",
+        "load_basis": "served",
+        "balance_of_plant": "separate_rated_proxy",
+        "decommissioning": "retirement"
+      }
+    }
+  },
+  "teacher_engine_equals_original_run": true,
+  "Excel_values_unchanged": true,
+  "comparison_images": [
+    "Mode1_minimum.png",
+    "Mode2_minimum.png",
+    "Mode3_minimum.png",
+    "Mode1_addition.png",
+    "Mode2_addition.png",
+    "Mode3_addition.png"
+  ]
+}

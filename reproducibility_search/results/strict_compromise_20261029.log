@@ -1,0 +1,82 @@
+Physical 1/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 2/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 3/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 4/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 5/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 6/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 7/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 8/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 9/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 10/50, 60 financial combinations: {'charge_mwth': 5.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 11/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 12/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 13/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 14/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 15/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 16/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 17/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 18/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 19/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 20/50, 60 financial combinations: {'charge_mwth': 10.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 21/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 22/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 23/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 24/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 25/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 26/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 27/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 28/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 29/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 30/50, 60 financial combinations: {'charge_mwth': 15.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 31/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 32/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 33/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 34/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 35/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 36/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 37/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 38/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 39/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 40/50, 60 financial combinations: {'charge_mwth': 20.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 41/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 42/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 5.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 43/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 44/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 7.5, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 45/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 46/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 10.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 47/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 48/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 15.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+Physical 49/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'legacy', 'overflow': 'cap'}
+Physical 50/50, 60 financial combinations: {'charge_mwth': 25.0, 'discharge_mwth': 25.0, 'hydrogen_formula': 'minimum', 'thermal_gate': 'resource', 'overflow': 'cap'}
+{
+  "output": "/Users/pranavtripathi/Desktop/Thesis_initial/Initial_implementation/reproducibility_search/results/strict_compromise_20261029",
+  "cases": 3000,
+  "selected": {
+    "case_id": "P044_E049",
+    "physical_id": "P044",
+    "economic_id": "E049",
+    "charge_mwth": 25.0,
+    "discharge_mwth": 7.5,
+    "hydrogen_formula": "minimum",
+    "thermal_gate": "resource",
+    "overflow": "cap",
+    "real_rate": 0.1,
+    "project_years": 20,
+    "variable_cost_basis": "thermal",
+    "decommissioning": "retirement",
+    "numerical_relative_rms": 1.2734666250920257,
+    "numerical_relative_mean_absolute": 0.8299097006724172,
+    "minimum_all_metric_band_percent": 275.2957143048206,
+    "within_10_percent": false,
+    "within_20_percent": false,
+    "within_30_percent": false,
+    "within_50_percent": false,
+    "approximate_TES_feature_score": 6.753710719046101,
+    "missing_late_H2": 0,
+    "shape_feature_score": 6.753710719046101,
+    "mode1_RE_waste_MWh": 414.46517766237343,
+    "valid": true,
+    "compromise_score": 5.923788609707102
+  },
+  "minimum_all_metric_band_percent": 270.9281771274125
+}
